@@ -3,14 +3,29 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './component/header/header.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { HomeComponent } from './component/home/home.component';
+import { FootterComponent } from './component/footter/footter.component';
+import { ListCustomerComponent } from './component/customer/list-customer/list-customer.component';
+import {HttpClientModule} from "@angular/common/http";
+import { CreateCustomerComponent } from './component/customer/create-customer/create-customer.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    NavbarComponent,
+    HomeComponent,
+    FootterComponent,
+    ListCustomerComponent,
+    CreateCustomerComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
