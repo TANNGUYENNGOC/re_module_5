@@ -9,54 +9,87 @@
 <div class="row">
   <div class="col-3"></div>
   <div class="col-6">
-    <form style="height: 300px" action="/customer/create" method="post">
-      <div class="mb-3">
-        <label class="form-label">Loại khách hàng</label>
-        <select  class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-          <option *ngFor="let customerType of customerTypeList" >{{customerType.name}}
-          </option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail2" class="form-label">Tên khách hàng</label>
-        <input type="text" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail3" class="form-label">Ngày sinh</label>
-        <input type="date" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
-      </div>
-      <div class="mb-3">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">
-            Nam
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-          <label class="form-check-label" for="flexRadioDefault2">
-            Đàn bà
-          </label>
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail5" class="form-label">Số CMND</label>
-        <input type="text" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail6" class="form-label">Số điện thoại</label>
-        <input type="text" class="form-control" id="exampleInputEmail6" aria-describedby="emailHelp">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail7" class="form-label">Email</label>
-        <input type="text" class="form-control" id="exampleInputEmail7" aria-describedby="emailHelp">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail8" class="form-label">Địa chỉ</label>
-        <input type="text" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp">
-        <p style="color: red"></p>
-      </div>
+    <form [formGroup]="createFormCustomer" style="height: 300px" (ngSubmit)="saveCustomer()">
+      <table class="table">
+        <tbody>
+        <tr>
+          <td><label class="form-label">Loại khách hàng:</label></td>
+          <td>
+            <select formControlName="customerType" class="form-select form-select-lg mb-3"
+                    aria-label=".form-select-lg example">
+              <option *ngFor="let customerType of customerTypeList" [value]="customerType.id">{{customerType.name}}
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="exampleInputEmail2" class="form-label">Tên khách hàng:</label></td>
+          <td><input formControlName="name" type="text" class="form-control" id="exampleInputEmail2"
+                     aria-describedby="emailHelp"></td>
+        </tr>
+        <tr>
+          <td><label for="exampleInputEmail3" class="form-label">Ngày sinh:</label></td>
+          <td><input formControlName="dateOfBirth" type="date" class="form-control" id="exampleInputEmail3"
+                     aria-describedby="emailHelp"></td>
+        </tr>
+        <tr>
+          <td>Giới tính:</td>
+          <td class="d-flex">
+              <div class="form-check" style="margin-right: 20px">
+                <input formControlName="gender" [value]="1" class="form-check-input" type="radio"
+                       name="flexRadioDefault"
+                       id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Nam
+                </label>
+              </div>
+              <div class="form-check" style="margin-right: 20px">
+                <input formControlName="gender" [value]="0" class="form-check-input" type="radio"
+                       name="flexRadioDefault"
+                       id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Đàn bà
+                </label>
+              </div>
+              <div class="form-check" >
+                <input formControlName="gender" [value]="2" class="form-check-input" type="radio"
+                       name="flexRadioDefault"
+                       id="flexRadioDefault3">
+                <label class="form-check-label" for="flexRadioDefault3">
+                  Khác
+                </label>
+              </div>
+
+          </td>
+        </tr>
+        <tr>
+          <td><label for="exampleInputEmail5" class="form-label">Số CMND:</label></td>
+          <td><input formControlName="idCard" type="text" class="form-control" id="exampleInputEmail5"
+                     aria-describedby="emailHelp"></td>
+        </tr>
+
+        <tr>
+          <td><label for="exampleInputEmail6" class="form-label">Số điện thoại:</label></td>
+          <td><input formControlName="phoneNumber" type="text" class="form-control" id="exampleInputEmail6"
+                     aria-describedby="emailHelp"></td>
+        </tr>
+        <tr>
+          <td><label for="exampleInputEmail7" class="form-label">Email:</label></td>
+          <td><input formControlName="email" type="text" class="form-control" id="exampleInputEmail7"
+                     aria-describedby="emailHelp"></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="exampleInputEmail8" class="form-label">Địa chỉ:</label></td>
+          <td> <input formControlName="address" type="text" class="form-control" id="exampleInputEmail8"
+                      aria-describedby="emailHelp"></td>
+        </tr>
+        <tr></tr>
+        </tbody>
+      </table>
       <button type="submit" class="btn btn-primary">Submit</button>
+      <button routerLink="/customer/list" style="margin-left: 20px" type="button" class="btn btn-secondary">Hủy</button>
+
     </form>
   </div>
   <div class="col-3"></div>

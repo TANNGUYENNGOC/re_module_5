@@ -22,16 +22,16 @@
       <th scope="col">Xóa</th>
     </tr>
     </thead>
-    <tbody *ngFor="let customer of customerList">
+    <tbody *ngFor="let customer of customerList | paginate:{itemsPerPage:5,currentPage: p}">
     <tr>
       <td>{{customer.id}}</td>
       <td>{{customer.customerType}}</td>
       <td>{{customer.name}}</td>
       <td>{{customer.dateOfBirth}}</td>
-      <td *ngIf="customer.gender;else genderBlock">Nam</td>
-      <ng-template #genderBlock>
-        <td>Nữ</td>
-      </ng-template>
+      <td *ngIf="customer.gender==1">Nam</td>
+      <td *ngIf="customer.gender==0">Nữ</td>
+      <td *ngIf="customer.gender==2">Khác</td>
+
       <td>{{customer.idCard}}</td>
       <td>{{customer.phoneNumber}}</td>
       <td>{{customer.email}}</td>
@@ -47,5 +47,7 @@
     </tr>
     </tbody>
   </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
   <app-footter></app-footter>
 </div>

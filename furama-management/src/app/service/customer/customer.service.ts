@@ -12,4 +12,7 @@ export class CustomerService {
   getAll(){
     return this.httpClient.get<Customer[]>("http://localhost:8080/api-customer/listCustomer")
   }
+  save(customer:Customer){
+    return this.httpClient.post("http://localhost:8080/api-customer/createCustomer",customer);
+  }
 }

@@ -9,6 +9,7 @@ import {CustomerService} from "../../../service/customer/customer.service";
 })
 export class ListCustomerComponent implements OnInit {
   customerList: Customer [] = [];
+  p: number;
 
   constructor(private customerService: CustomerService) {
     this.getAllCustomer();

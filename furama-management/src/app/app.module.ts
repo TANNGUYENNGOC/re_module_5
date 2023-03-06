@@ -10,6 +10,8 @@ import { FootterComponent } from './component/footter/footter.component';
 import { ListCustomerComponent } from './component/customer/list-customer/list-customer.component';
 import {HttpClientModule} from "@angular/common/http";
 import { CreateCustomerComponent } from './component/customer/create-customer/create-customer.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -25,7 +27,10 @@ import { CreateCustomerComponent } from './component/customer/create-customer/cr
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
