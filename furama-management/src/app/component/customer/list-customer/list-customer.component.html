@@ -3,7 +3,8 @@
   <app-navbar></app-navbar>
   <div class="row" style="margin-top: 10px">
     <div class="col-9"></div>
-    <button routerLink="/customer/create" type="button" class="btn btn-success col-3">Thêm mới</button>
+<!--    <button routerLink="/customer/create" type="button" class="btn btn-success col-3">Thêm mới</button>-->
+    <a href="/customer/create" type="button" class="btn btn-success col-3">Thêm mới</a>
   </div>
 
   <table class="table">
@@ -37,10 +38,10 @@
       <td>{{customer.email}}</td>
       <td>{{customer.address}}</td>
       <td>
-        <button type="button" class="btn btn-warning">Sửa</button>
+        <button [routerLink]="['/customer/update',customer.id]" type="button" class="btn btn-warning">Sửa</button>
       </td>
       <td>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button (click)="customerRemove(customer.id,customer.name)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Xóa
         </button>
       </td>
@@ -50,4 +51,23 @@
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
   <app-footter></app-footter>
+</div>
+
+<!--modal Xóa-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Xóa</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn xóa khách hàng <span style="color: red">{{nameRemoveCustomer}}</span> không ???
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+        <button (click)="remove(idRemoveCustomer)" type="button" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -18,6 +18,14 @@ export class CreateCustomerComponent implements OnInit {
   constructor(private customerTypeService: CustomerTypeService,
               private customerService: CustomerService,
               private router: Router) {
+
+
+
+    // this.getAllListCustomerType();
+
+  }
+
+  async ngOnInit(): Promise<void>  {
     this.createFormCustomer = new FormGroup({
       customerType: new FormControl(),
       name: new FormControl(),
@@ -28,19 +36,10 @@ export class CreateCustomerComponent implements OnInit {
       email: new FormControl(),
       address: new FormControl()
     })
-    this.getAllCustomerType();
-  }
 
-  ngOnInit(): void {
+      await this.getListCustomerType();
 
-  }
 
-  getAllCustomerType() {
-    return this.customerTypeService.getAll().subscribe(next => {
-      this.customerTypeList = next;
-    }, error => {
-
-    })
   }
 
   saveCustomer() {
@@ -53,8 +52,20 @@ export class CreateCustomerComponent implements OnInit {
     return this.customerService.save(customer).subscribe(next => {
     });
     this.createFormCustomer.reset();
-    this.router.navigateByUrl("/customer/list");
+    this.router.navigateByUrl("customer/list");
     alert("Thêm mới thành công")
   }
 
+  getAllListCustomerType() {
+    return this.customerTypeService.getAll().subscribe(next => {
+      this.customerTypeList = next;
+    }, error => {
+
+    });
+  }
+
+  getListCustomerType() {
+    this.customerTypeService.getAll().subscribe(next => {
+      this.customerTypeList = next;})
+  }
 }

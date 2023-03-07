@@ -1,0 +1,16 @@
+<h2>Font size editor</h2>
+
+<div>
+  <label>Enter font size (px):</label>
+<!--  <input #element type="range" min="9" max="72" value="18" (change)="changeFontSizeValue(element.value)">-->
+
+<!--  biding 2 chiều -->
+  <input  type="range" min="9" max="72" value="18" [(ngModel)]="fontSize">
+</div>
+<input [(ngModel)]="name" type="text">
+<input #element type="text" (change)="displayAge(element.value)">
+<p class="output" [style.fontSize.px]="fontSize">
+  This is a paragraph.
+</p>
+<p>{{name}}</p>
+<p>{{age}}</p>

@@ -15,4 +15,13 @@ export class CustomerService {
   save(customer:Customer){
     return this.httpClient.post("http://localhost:8080/api-customer/createCustomer",customer);
   }
+  delete(id:number){
+    return this.httpClient.delete("http://localhost:8080/api-customer/deleteCustomer/"+id);
+  }
+
+  findById(id:number){
+    return this.httpClient.get<Customer>("http://localhost:8080/api-customer/detailCustomer/"+id);
+  }
+
+
 }

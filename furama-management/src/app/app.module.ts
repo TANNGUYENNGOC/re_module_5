@@ -12,6 +12,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { CreateCustomerComponent } from './component/customer/create-customer/create-customer.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxPaginationModule} from "ngx-pagination";
+import { UpdateCustomerComponent } from './component/customer/update-customer/update-customer.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {NgxPaginationModule} from "ngx-pagination";
     FootterComponent,
     ListCustomerComponent,
     CreateCustomerComponent,
+    UpdateCustomerComponent,
   ],
   imports: [
     BrowserModule,

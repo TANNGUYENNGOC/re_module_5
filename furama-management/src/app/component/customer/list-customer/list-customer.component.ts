@@ -10,6 +10,9 @@ import {CustomerService} from "../../../service/customer/customer.service";
 export class ListCustomerComponent implements OnInit {
   customerList: Customer [] = [];
   p: number;
+  idRemoveCustomer:number;
+  nameRemoveCustomer:string;
+
 
   constructor(private customerService: CustomerService) {
     this.getAllCustomer();
@@ -22,6 +25,22 @@ export class ListCustomerComponent implements OnInit {
     return this.customerService.getAll().subscribe(next => {
       this.customerList = next;
     }, error => {
+
+    })
+  }
+
+  removeCustomer(id:number, nameCustomer:String){
+
+  }
+
+  customerRemove(id: number, name: string) {
+    this.idRemoveCustomer = id;
+    this.nameRemoveCustomer = name;
+
+  }
+
+  remove(idRemoveCustomer: number) {
+    this.customerService.delete(idRemoveCustomer).subscribe(next=>{
 
     })
   }
