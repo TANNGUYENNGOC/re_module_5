@@ -29,8 +29,9 @@
   <input #secondNumber type="number" name="" id="secondNumber" class="form-control" placeholder="" aria-describedby="helpId">
   <br>
   <button (click)="calculate(fistNumber.value,secondNumber.value,operand.value)" type="submit">Tính</button>
-
+  <p>{{errors}}</p>
   <p>Kết quả: {{result}}</p>
+
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

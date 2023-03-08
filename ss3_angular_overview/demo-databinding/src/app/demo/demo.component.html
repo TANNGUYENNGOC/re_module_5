@@ -1,0 +1,20 @@
+<!--two-way binding-->
+<input [(ngModel)]="name" type="text" placeholder="Mày tên gì">
+<p>{{name}}</p>
+<div>
+  <input type="color" [(ngModel)]="colorSelect">
+<h1 [style.color]="colorSelect">Tấn đẹp trai</h1>
+</div>
+
+<!--one-way biding-->
+
+<!--Interpolation-->
+<p>Hello {{tuong}}</p>
+
+<!--Property Binding-->
+<img [src]="image" alt="" ảnh ys>
+<br>
+
+<!--event Binding-->
+<input #element type="text" placeholder="Nhập size" (change)="sizeInput(element.value)">
+<p [style.font-size.px]="size">Tananhhung12345</p>

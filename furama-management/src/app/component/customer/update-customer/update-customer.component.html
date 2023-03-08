@@ -5,14 +5,15 @@
   <title>Create</title>
 </head>
 <body>
-<div class="row"></div>
 <div class="row">
-  <div class="col-6"><h1 class="text-center">Chỉnh sửa khách hàng</h1></div>
-  <div class="col-6">
-    <form [formGroup]="formUpdateCustomer" style="height: 300px" (ngSubmit)="updateCustomer()">
+</div>
+<div class="row" style="height: 560px;width: 100%">
+  <div class="col-6" ><h1 class="text-center">Chỉnh sửa khách hàng</h1></div>
+  <div class="col-6" style="background-color: white">
+    <form  [formGroup]="formUpdateCustomer" style="height: 300px;margin-top: 70px" (ngSubmit)="updateCustomer()">
       <table class="table">
         <tbody>
-        <tr>
+        <tr hidden>
           <td><label for="exampleInputEmail" class="form-label">ID:</label></td>
           <td><input formControlName="id" type="text" class="form-control" id="exampleInputEmail"
                      aria-describedby="emailHelp"></td>
@@ -69,7 +70,7 @@
         </tr>
         <tr>
           <td><label for="exampleInputEmail5" class="form-label">Số CMND:</label></td>
-          <td><input formControlName="idCard" type="text" class="form-control" id="exampleInputEmail5"
+          <td><input autofocus formControlName="idCard" type="text" class="form-control" id="exampleInputEmail5"
                      aria-describedby="emailHelp"></td>
         </tr>
 

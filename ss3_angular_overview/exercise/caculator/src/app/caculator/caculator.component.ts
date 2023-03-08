@@ -6,7 +6,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./caculator.component.css']
 })
 export class CaculatorComponent implements OnInit {
-  result: number;
+  result: number = 10;
+  errors: string;
 
   constructor() {
   }
@@ -15,14 +16,18 @@ export class CaculatorComponent implements OnInit {
   }
 
   calculate(fistNumber: string, secondNumber: string, operand: string) {
-    if (operand == "+") {
+    if (operand === "+") {
       this.result = parseInt(fistNumber) + parseInt(secondNumber);
-    } else if (operand == "-"){
+    } else if (operand === "-"){
       this.result = parseInt(fistNumber) - parseInt(secondNumber);
-    }else if (operand == "*"){
+    }else if (operand === "*"){
       this.result = parseInt(fistNumber) * parseInt(secondNumber);
     }else {
+      if(secondNumber==="0"){
+       return this.errors = "Không thể chia cho 0";
+      }
       this.result = parseInt(fistNumber) / parseInt(secondNumber);
+
     }
       }
 }

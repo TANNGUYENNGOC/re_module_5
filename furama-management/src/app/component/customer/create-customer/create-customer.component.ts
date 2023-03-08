@@ -50,10 +50,11 @@ export class CreateCustomerComponent implements OnInit {
       }
     };
     return this.customerService.save(customer).subscribe(next => {
+      this.createFormCustomer.reset();
+      alert("Thêm mới thành công");
+      this.router.navigateByUrl("customer/list");
     });
-    this.createFormCustomer.reset();
-    this.router.navigateByUrl("customer/list");
-    alert("Thêm mới thành công")
+
   }
 
   getAllListCustomerType() {

@@ -16,7 +16,7 @@ export class CustomerService {
     return this.httpClient.post("http://localhost:8080/api-customer/createCustomer",customer);
   }
   delete(id:number){
-    return this.httpClient.delete("http://localhost:8080/api-customer/deleteCustomer/"+id);
+    return this.httpClient.delete("http://localhost:8080/api-customer/deleteCustomerById/"+id);
   }
 
   findById(id:number){

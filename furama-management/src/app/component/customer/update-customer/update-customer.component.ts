@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {CustomerType} from "../../../model/customer-type";
 import {CustomerService} from "../../../service/customer/customer.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {CustomerTypeService} from "../../../service/customer/customer-type.service";
 
 @Component({
@@ -16,7 +16,8 @@ export class UpdateCustomerComponent implements OnInit {
 
   constructor(private customerService: CustomerService,
               private customerTypeService: CustomerTypeService,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private router:Router) {
     this.activatedRoute.paramMap.subscribe(next => {
       let id = parseInt(next.get('id'));
       if (id != null) {
@@ -56,12 +57,17 @@ export class UpdateCustomerComponent implements OnInit {
 
   updateCustomer() {
     let customer = {
-      ...this.formUpdateCustomer,
-      id: this.formUpdateCustomer.controls['customerType'].value
-    }
+      ...this.formUpdateCustomer.value,
+      customerType:{
+        id: this.formUpdateCustomer.controls['customerType'].value
+
+      }
+    };
+
 
     return this.customerService.save(customer).subscribe(next=>{
-
+      alert("Chỉnh sửa thành công");
+      this.router.navigateByUrl("customer/list");
     })
   }
 }

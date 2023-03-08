@@ -13,7 +13,6 @@ export class ListCustomerComponent implements OnInit {
   idRemoveCustomer:number;
   nameRemoveCustomer:string;
 
-
   constructor(private customerService: CustomerService) {
     this.getAllCustomer();
   }
@@ -29,9 +28,6 @@ export class ListCustomerComponent implements OnInit {
     })
   }
 
-  removeCustomer(id:number, nameCustomer:String){
-
-  }
 
   customerRemove(id: number, name: string) {
     this.idRemoveCustomer = id;
@@ -41,7 +37,8 @@ export class ListCustomerComponent implements OnInit {
 
   remove(idRemoveCustomer: number) {
     this.customerService.delete(idRemoveCustomer).subscribe(next=>{
+      this.getAllCustomer();
+    });
 
-    })
   }
 }
