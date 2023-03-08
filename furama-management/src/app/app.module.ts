@@ -13,6 +13,9 @@ import { CreateCustomerComponent } from './component/customer/create-customer/cr
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxPaginationModule} from "ngx-pagination";
 import { UpdateCustomerComponent } from './component/customer/update-customer/update-customer.component';
+import { ListFacilityComponent } from './component/facility/list-facility/list-facility.component';
+import { CreateFacilityComponent } from './component/facility/create-facility/create-facility.component';
+import { UpdateFacilityComponent } from './component/facility/update-facility/update-facility.component';
 
 
 @NgModule({
@@ -25,6 +28,9 @@ import { UpdateCustomerComponent } from './component/customer/update-customer/up
     ListCustomerComponent,
     CreateCustomerComponent,
     UpdateCustomerComponent,
+    ListFacilityComponent,
+    CreateFacilityComponent,
+    UpdateFacilityComponent,
   ],
   imports: [
     BrowserModule,
