@@ -16,6 +16,8 @@ import { UpdateCustomerComponent } from './component/customer/update-customer/up
 import { ListFacilityComponent } from './component/facility/list-facility/list-facility.component';
 import { CreateFacilityComponent } from './component/facility/create-facility/create-facility.component';
 import { UpdateFacilityComponent } from './component/facility/update-facility/update-facility.component';
+import { CreateContractComponent } from './component/contract/create-contract/create-contract.component';
+import { ListContractComponent } from './component/contract/list-contract/list-contract.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { UpdateFacilityComponent } from './component/facility/update-facility/up
     ListFacilityComponent,
     CreateFacilityComponent,
     UpdateFacilityComponent,
+    CreateContractComponent,
+    ListContractComponent,
   ],
   imports: [
     BrowserModule,
