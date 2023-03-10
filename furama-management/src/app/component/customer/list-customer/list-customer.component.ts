@@ -12,9 +12,12 @@ export class ListCustomerComponent implements OnInit {
   p: number;
   idRemoveCustomer:number;
   nameRemoveCustomer:string;
+  zxc = 0;
+
 
   constructor(private customerService: CustomerService) {
     this.getAllCustomer();
+
   }
 
   ngOnInit(): void {

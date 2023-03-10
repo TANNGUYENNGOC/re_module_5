@@ -19,7 +19,8 @@ export class DemoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sizeInput(value: number) {
-    this.size = value;
+  sizeInput(value: string) {
+
+    this.size = parseInt(value);
   }
 }

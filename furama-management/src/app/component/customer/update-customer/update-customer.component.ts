@@ -27,7 +27,7 @@ export class UpdateCustomerComponent implements OnInit {
             // @ts-ignore
             customerType: data.customerType.id
           });
-        })
+        }) 
       }
     });
 

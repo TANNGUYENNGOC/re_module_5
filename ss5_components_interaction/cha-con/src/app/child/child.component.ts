@@ -7,7 +7,7 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 })
 export class ChildComponent implements OnInit, OnChanges {
   @Input()
-  so: number = 0;
+  soo: number = 0;
   @Input()
   age: number = 0;
 

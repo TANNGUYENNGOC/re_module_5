@@ -36,9 +36,7 @@ export class CreateCustomerComponent implements OnInit {
       email: new FormControl(),
       address: new FormControl()
     })
-
       await this.getListCustomerType();
-
 
   }
 

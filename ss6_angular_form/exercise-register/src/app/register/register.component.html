@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="col-3"></div>
+<div class="col-6">
+  <form [formGroup]="formRegister" (ngSubmit)="create()">
+    <table class="table">
+      <thead>
+      <tr>
+        <th colspan="2"><h2 class="text-center">Register</h2></th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+
+        <td>
+          <label for="exampleInputEmail1" class="form-label">Email:</label>
+        </td>
+        <td>
+          <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </td>
+        <td>
+          <p style="color: red" *ngIf="formRegister.controls.email.hasError('required') && formRegister.controls.email.touched">Email không được để trống</p>
+          <p style="color: red" *ngIf="formRegister.controls.email.hasError('email') && formRegister.controls.email.touched">Email không đúng định dạng</p>
+
+<!--          <p *ngIf="formRegister.controls.email?.errors?.required && formRegister.controls.email.touched"></p>Email không được để trống-->
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="exampleInputEmail2" class="form-label">Pass Word:</label>
+        </td>
+        <td><input formControlName="password" type="password" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
+        </td>
+        <td>
+          <p style="color: red" *ngIf="formRegister.controls.password.hasError('required') && formRegister.controls.password.touched">Mật khẩu không được để trống</p>
+          <p style="color: red" *ngIf="formRegister.controls.password.hasError('minlength') && formRegister.controls.password.touched">Mật khẩu tối thiểu 6 kí tự</p>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="exampleInputEmail3" class="form-label"> Confirm password:</label>
+        </td>
+        <td>
+          <input formControlName="confirmPassword" type="password" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+        </td>
+        <td>
+          <p style="color: red" *ngIf="formRegister.controls.confirmPassword.hasError('required') && formRegister.controls.confirmPassword.touched">Nhập lại mật khẩu</p>
+          <p style="color: red" *ngIf="formRegister.controls.confirmPassword.hasError('passErrors') && formRegister.controls.confirmPassword.touched">Nhập Lại không đúng</p>
+<!--          <p style="color: red" *ngIf="formRegister.controls.confirmPassword.value!=formRegister.controls.passWord ">Nhập lại không đúng</p>-->
+        </td>
+      </tr>
+      <tr>
+        <td>Country</td>
+        <td>
+          <select formControlName="country" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option value="">---Select Country---</option>
+          <option *ngFor="let country of countryList">{{country}}</option>
+        </select></td>
+        <td>
+          <p style="color: red" *ngIf="formRegister.controls.country.hasError('required') && formRegister.controls.country.touched">Chọn quốc gia</p>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="exampleInputEmail5" class="form-label">Age:</label>
+        </td>
+        <td><input formControlName="age" type="text" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
+        </td>
+        <td>
+          <p style="color: red" *ngIf="formRegister.controls.age.hasError('required') && formRegister.controls.age.touched">Nhập tuổi</p>
+          <p style="color: red" *ngIf="formRegister.controls.age.hasError('min') && formRegister.controls.age.touched">Bạn phải lớn hơn hoặc 18 tuổi</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Gender</td>
+        <td class="display-flex">
+          <div style="margin-right: 30px">
+            <input formControlName="gender" [value]="true" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Male
+            </label>
+          </div>
+          <div>
+            <input formControlName="gender" [value]="false" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              Female
+            </label>
+          </div>
+        </td>
+        <td>
+          <p style="color: red" *ngIf="formRegister.controls.gender.hasError('required') && formRegister.controls.gender.touched">Bạn chưa chọn giới tính</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td>    <label for="exampleInputEmail6" class="form-label">Phone:</label>
+        </td>
+        <td>    <input formControlName="phone" type="text" class="form-control" id="exampleInputEmail6" aria-describedby="emailHelp">
+        </td>
+        <td>
+          <p style="color: red" *ngIf="formRegister.controls.phone.hasError('required') && formRegister.controls.phone.touched">Bạn chưa nhập số điện thoại</p>
+          <p style="color: red" *ngIf="formRegister.controls.phone.hasError('pattern') && formRegister.controls.phone.touched">Số điện thoại chưa đúng định dạng</p>
+
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<div class="col-3">.</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
