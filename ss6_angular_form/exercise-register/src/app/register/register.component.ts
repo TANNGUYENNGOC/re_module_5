@@ -29,12 +29,15 @@ export class RegisterComponent implements OnInit {
   }
 
   checkPass(control:AbstractControl){
-    let checkForm = control.value;
-    if (!(checkForm.password === checkForm.confirmPassword)){
+    let confirmPassword = control.value;
+    let password = control.value;
+    debugger
+    if ((confirmPassword !== password)){
       return {"passErrors": true};
     }
     return null;
   }
+
 
   // checkPass(control: AbstractControl):{passErrors: boolean} {
   //   return control.value.password === control.value.confirmPassword ?
