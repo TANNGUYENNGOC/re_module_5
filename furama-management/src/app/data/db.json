@@ -122,6 +122,55 @@
         "numberOfFloors": 12,
         "facilityFree": "không"
       }
+    },
+    {
+      "startDate": "2023-03-05",
+      "endDate": "2023-03-05",
+      "deposit": "10",
+      "employee": {
+        "id": 1,
+        "name": "Nhậm Ngã Hành",
+        "dateOfBirth": "12/12/2001",
+        "idCard": "0991188221",
+        "salary": "1000",
+        "phoneNumber": "0991188223",
+        "email": "hanhla@gmail.com",
+        "address": "Ngũ Hành Sơn, Đà Nẵng",
+        "position": {
+          "id": 1,
+          "name": "Nhân viên"
+        },
+        "educationDegree": {
+          "id": 2,
+          "name": "Cao đẳng"
+        },
+        "division": {
+          "id": 3,
+          "name": "Phục vụ"
+        }
+      },
+      "facility": {
+        "id": 2,
+        "name": "Phòng tù đẹp",
+        "img": "https://vcdn1-vnexpress.vnecdn.net/2018/02/01/nhagiam-5-1517496761.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=iVuiVkgqafl3jFNesPBwwg",
+        "area": 10,
+        "cost": "14000000",
+        "maxPeople": 10,
+        "rentType": {
+          "id": 4,
+          "name": "Năm"
+        },
+        "facilityType": {
+          "id": 1,
+          "name": "Room"
+        },
+        "standardRoom": "zxc123a",
+        "descriptionOtherConvenience": "xcvbfđ",
+        "poolArea": 3,
+        "numberOfFloors": 12,
+        "facilityFree": "không "
+      },
+      "id": 7
     }
   ],
   "customerType": [
@@ -140,27 +189,13 @@
   ],
   "customer": [
     {
-      "id": 2,
       "customerType": {
-        "id": 1,
-        "name": "Vip"
-      },
-      "name": "Khương Tử Nha",
-      "dateOfBirth": "12-02-1992",
-      "gender": true,
-      "idCard": "8557733884",
-      "phoneNumber": "0994488553",
-      "email": "khuongtunha@gmail.com",
-      "address": "Đà Nẵng"
-    },
-    {
-      "customerType": {
-        "id": 1,
-        "name": "Vip"
+        "id": 2,
+        "name": "không vip"
       },
       "name": "Ronaldo",
       "dateOfBirth": "2023-02-24",
-      "gender": true,
+      "gender": 1,
       "idCard": "9998877446",
       "phoneNumber": "0998899776",
       "email": "CR7@gmail.com",
@@ -174,7 +209,7 @@
       },
       "name": "Barack Obama",
       "dateOfBirth": "1990-02-16",
-      "gender": false,
+      "gender": 1,
       "idCard": "0998877667",
       "phoneNumber": "0998899885",
       "email": "tananhhung113@gmail.com",
@@ -183,12 +218,12 @@
     },
     {
       "customerType": {
-        "id": 2,
-        "name": "không vip"
+        "id": 3,
+        "name": "hơi vip"
       },
       "name": "Tiến Bịp",
       "dateOfBirth": "2001-02-11",
-      "gender": true,
+      "gender": 0,
       "idCard": "7778899887",
       "phoneNumber": "0009988998",
       "email": "tienbip@gmail.com",
@@ -202,18 +237,96 @@
       },
       "name": "Lê Tạ Hà Phương",
       "dateOfBirth": "2023-02-10",
-      "gender": true,
+      "gender": 1,
       "idCard": "0099889988",
       "phoneNumber": "0998899886",
       "email": "phuong@gmail.com",
       "address": "Quảng Nam",
       "id": 6
+    },
+    {
+      "customerType": {
+        "id": 1,
+        "name": "Vip"
+      },
+      "name": "Công Định",
+      "dateOfBirth": "1999-03-05",
+      "gender": "2",
+      "idCard": "9199922001",
+      "phoneNumber": "0199922331",
+      "email": "congdinh@gmail.com",
+      "address": "đà nẵng",
+      "id": 7
     }
   ],
   "employee": [
     {
       "id": 1,
-      "name": "Nhậm Ngã Hành"
+      "name": "Nhậm Ngã Hành",
+      "dateOfBirth": "12/12/2001",
+      "idCard": "0991188221",
+      "salary": "1000",
+      "phoneNumber": "0991188223",
+      "email": "hanhla@gmail.com",
+      "address": "Ngũ Hành Sơn, Đà Nẵng",
+      "position": {
+        "id": 1,
+        "name": "Nhân viên"
+      },
+      "educationDegree": {
+        "id": 2,
+        "name": "Cao đẳng"
+      },
+      "division": {
+        "id": 3,
+        "name": "Phục vụ"
+      }
+    }
+  ],
+  "division": [
+    {
+      "id": 1,
+      "name": "Sale-Marketing"
+    },
+    {
+      "id": 2,
+      "name": "Hành Chính"
+    },
+    {
+      "id": 3,
+      "name": "Phục vụ"
+    },
+    {
+      "id": 4,
+      "name": "Quản lí"
+    }
+  ],
+  "educationDegree": [
+    {
+      "id": 1,
+      "name": "Trung cấp"
+    },
+    {
+      "id": 2,
+      "name": "Cao đẳng"
+    },
+    {
+      "id": 3,
+      "name": "Đại học"
+    },
+    {
+      "id": 4,
+      "name": "Sau đại học"
+    }
+  ],
+  "position": [
+    {
+      "id": 1,
+      "name": "Quản lí"
+    },
+    {
+      "id": 2,
+      "name": "Nhân viên"
     }
   ],
   "rentType": [
@@ -353,6 +466,42 @@
       "numberOfFloors": "",
       "facilityFree": "",
       "id": 6
+    },
+    {
+      "name": "Hồi sinh",
+      "img": "https://muathe24h.vn/pictures/images/be-da-co.jpg",
+      "area": "10",
+      "cost": "5",
+      "maxPeople": "5",
+      "rentType": {
+        "id": 2,
+        "name": "Tháng"
+      },
+      "facilityType": {
+        "id": 2,
+        "name": "House"
+      },
+      "standardRoom": "vip",
+      "descriptionOtherConvenience": "không",
+      "poolArea": "không",
+      "numberOfFloors": "5",
+      "facilityFree": "không",
+      "id": 10
+    },
+    {
+      "name": "Tài đẹp trai",
+      "img": "https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/267735726_445353730299523_1669265979852848728_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=174925&_nc_ohc=fpIvYxd-YUQAX-qZBsW&_nc_ht=scontent.fdad1-4.fna&oh=00_AfAFG5twZ16z_WwvLSHCAMbj3K0amQ-JoWLQcO9euiSq4w&oe=6412121D",
+      "area": null,
+      "cost": null,
+      "maxPeople": null,
+      "rentType": null,
+      "facilityType": null,
+      "standardRoom": null,
+      "descriptionOtherConvenience": null,
+      "poolArea": null,
+      "numberOfFloors": null,
+      "facilityFree": null,
+      "id": 11
     }
   ]
 }

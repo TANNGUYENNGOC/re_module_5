@@ -38,10 +38,10 @@ export class ListCustomerComponent implements OnInit {
 
   }
 
-  remove(idRemoveCustomer: number) {
-    this.customerService.delete(idRemoveCustomer).subscribe(next=>{
-      this.getAllCustomer();
-    });
-
-  }
+  // remove(idRemoveCustomer: number) {
+  //   this.customerService.delete(idRemoveCustomer).subscribe(next=>{
+  //     this.getAllCustomer();
+  //   });
+  //
+  // }
 }

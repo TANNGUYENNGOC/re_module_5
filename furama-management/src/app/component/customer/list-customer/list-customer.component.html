@@ -26,7 +26,7 @@
     <tbody *ngFor="let customer of customerList | paginate:{itemsPerPage:5,currentPage: p}">
     <tr>
       <td>{{customer.id}}</td>
-      <td>{{customer.customerType}}</td>
+      <td>{{customer.customerType.name}}</td>
       <td>{{customer.name}}</td>
       <td>{{customer.dateOfBirth}}</td>
       <td *ngIf="customer.gender==1">Nam</td>
@@ -69,7 +69,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-        <button (click)="remove(idRemoveCustomer)" type="button" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>
+<!--        <button (click)="remove(idRemoveCustomer)" type="button" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>-->
       </div>
     </div>
   </div>

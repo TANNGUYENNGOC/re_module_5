@@ -18,6 +18,8 @@ import { CreateFacilityComponent } from './component/facility/create-facility/cr
 import { UpdateFacilityComponent } from './component/facility/update-facility/update-facility.component';
 import { CreateContractComponent } from './component/contract/create-contract/create-contract.component';
 import { ListContractComponent } from './component/contract/list-contract/list-contract.component';
+import { ListEmployeeComponent } from './component/employee/list-employee/list-employee.component';
+import { UpdateContractComponent } from './component/contract/update-contract/update-contract.component';
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import { ListContractComponent } from './component/contract/list-contract/list-c
     UpdateFacilityComponent,
     CreateContractComponent,
     ListContractComponent,
+    ListEmployeeComponent,
+    UpdateContractComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,8 +7,9 @@
 </head>
 <body>
 <div class="container-fluid vh-100">
+
   <app-header></app-header>
-  <app-navigation></app-navigation>
+  <app-navbar></app-navbar>
   <div class="row">
     <div class="col-8">
       <h1 class="text-center">Danh sách dịch vụ</h1>
@@ -21,44 +22,33 @@
   <div class="row">
     <div class="col-1"></div>
     <div class="row col-10" style="box-sizing: border-box">
-      <div *ngFor="let facility of facilityList" class="card col-4" style="box-sizing: border-box">
+      <div *ngFor="let facility of facilityList | paginate:{itemsPerPage:3,currentPage: p}" class="card col-4" style="box-sizing: border-box">
         <img style="height: 300px" src="{{facility.img}}" class="card-img-top" alt="Không có ảnh">
         <div class="card-body">
           <h5 class="card-title">{{facility.name}}</h5>
           <p class="card-text">Room size: {{facility.area}}</p>
         </div>
+
         <div class="card-footer">
           <div class="row">
+            <button  type="button" class="btn btn-outline-success col-5" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-right: 30px;margin-left: 10px">
+              Xóa
+            </button>
+            <button [routerLink]="['/facility/update',facility.id]" type="button" class="btn btn-outline-success col-5">Sửa</button>
           </div>
         </div>
         <br>
       </div>
     </div>
+    <br>
     <div class="col-1"></div>
   </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
-  <app-footer></app-footer>
+  <app-footter></app-footter>
 
 </div>
 </body>
 
-<!--modal xóa -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Bạn có muốn xóa <span style="color: red">}</span></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-        <button  type="button" class="btn btn-primary" data-bs-dismiss="modal">Xóa</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 </html>

@@ -11,6 +11,6 @@ export class CustomerTypeService {
   }
 
   getAll() {
-    return this.httpClient.get<CustomerType[]>("http://localhost:8080/api-customer/listCustomerType");
+    return this.httpClient.get<CustomerType[]>("http://localhost:3000/customerType");
   }
 }

@@ -1,0 +1,45 @@
+<div class="container-fluid vh-100">
+  <app-header></app-header>
+  <app-navbar></app-navbar>
+  <div class="row" style="margin-top: 10px">
+    <div class="col-9"></div>
+    <!--    <button routerLink="/customer/create" type="button" class="btn btn-success col-3">Thêm mới</button>-->
+    <a href="/customer/create" type="button" class="btn btn-success col-3">Thêm mới</a>
+  </div>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Tên</th>
+      <th scope="col">Ngày sinh</th>
+      <th scope="col">Số CMND</th>
+      <th scope="col">Lương</th>
+      <th scope="col">Số điện thoại</th>
+      <th scope="col">Email</th>
+      <th scope="col">Địa chỉ</th>
+      <th scope="col">Vị trí</th>
+      <th scope="col">Trình độ</th>
+      <th scope="col">Chức vụ</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let employee of employeeList | paginate:{itemsPerPage:5,currentPage: p}">
+    <tr>
+      <td>{{employee.id}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.dateOfBirth}}</td>
+      <td>{{employee.idCard}}</td>
+      <td>{{employee.salary}}</td>
+      <td>{{employee.phoneNumber}}</td>
+      <td>{{employee.email}}</td>
+      <td>{{employee.address}}</td>
+      <td>{{employee.position.name}}</td>
+      <td>{{employee.educationDegree.name}}</td>
+      <td>{{employee.educationDegree.name}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+  <app-footter></app-footter>
+</div>

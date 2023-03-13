@@ -13,7 +13,7 @@
     <form  [formGroup]="formUpdateCustomer" style="height: 300px;margin-top: 70px" (ngSubmit)="updateCustomer()">
       <table class="table">
         <tbody>
-        <tr hidden>
+        <tr>
           <td><label for="exampleInputEmail" class="form-label">ID:</label></td>
           <td><input formControlName="id" type="text" class="form-control" id="exampleInputEmail"
                      aria-describedby="emailHelp"></td>
@@ -21,9 +21,9 @@
         <tr>
           <td><label class="form-label">Loại khách hàng:</label></td>
           <td>
-            <select formControlName="customerType" class="form-select form-select-lg mb-3"
+            <select formControlName="customerType" [compareWith]="compareWith" class="form-select form-select-lg mb-3"
                     aria-label=".form-select-lg example">
-              <option *ngFor="let customerType of customerTypeList" [value]="customerType.id">{{customerType.name}}
+              <option *ngFor="let customerType of customerTypeList" [ngValue]="customerType">{{customerType.name}}
               </option>
             </select>
           </td>
@@ -42,7 +42,7 @@
           <td>Giới tính:</td>
           <td class="d-flex">
             <div class="form-check" style="margin-right: 20px">
-              <input formControlName="gender" [value]="1" class="form-check-input" type="radio"
+              <input formControlName="gender" value="1" class="form-check-input" type="radio"
                      name="flexRadioDefault"
                      id="flexRadioDefault1">
               <label class="form-check-label" for="flexRadioDefault1">
@@ -50,7 +50,7 @@
               </label>
             </div>
             <div class="form-check" style="margin-right: 20px">
-              <input formControlName="gender" [value]="0" class="form-check-input" type="radio"
+              <input formControlName="gender" value="0" class="form-check-input" type="radio"
                      name="flexRadioDefault"
                      id="flexRadioDefault2">
               <label class="form-check-label" for="flexRadioDefault2">
@@ -58,7 +58,7 @@
               </label>
             </div>
             <div class="form-check" >
-              <input formControlName="gender" [value]="2" class="form-check-input" type="radio"
+              <input formControlName="gender" value="2" class="form-check-input" type="radio"
                      name="flexRadioDefault"
                      id="flexRadioDefault3">
               <label class="form-check-label" for="flexRadioDefault3">

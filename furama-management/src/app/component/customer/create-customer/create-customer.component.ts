@@ -3,7 +3,7 @@ import {CustomerType} from "../../../model/customer-type";
 import {CustomerTypeService} from "../../../service/customer/customer-type.service";
 import {CustomerService} from "../../../service/customer/customer.service";
 import {Customer} from "../../../model/customer";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
@@ -20,38 +20,43 @@ export class CreateCustomerComponent implements OnInit {
               private router: Router) {
 
 
-
-    // this.getAllListCustomerType();
-
   }
 
-  async ngOnInit(): Promise<void>  {
+  async ngOnInit(): Promise<void> {
     this.createFormCustomer = new FormGroup({
-      customerType: new FormControl(),
-      name: new FormControl(),
-      dateOfBirth: new FormControl(),
-      gender: new FormControl(),
-      idCard: new FormControl(),
-      phoneNumber: new FormControl(),
-      email: new FormControl(),
-      address: new FormControl()
+      customerType: new FormControl("", [Validators.required]),
+      name: new FormControl("", [Validators.required]),
+      dateOfBirth: new FormControl("", [Validators.required]),
+      gender: new FormControl("", [Validators.required]),
+      idCard: new FormControl("", [Validators.required]),
+      phoneNumber: new FormControl("", [Validators.required]),
+      email: new FormControl("", [Validators.required]),
+      address: new FormControl("", [Validators.required])
     })
-      await this.getListCustomerType();
+    await this.getListCustomerType();
 
   }
 
   saveCustomer() {
-    let customer = {
-      ...this.createFormCustomer.value,
-      customerType: {
-        id: this.createFormCustomer.controls['customerType'].value
-      }
-    };
-    return this.customerService.save(customer).subscribe(next => {
-      this.createFormCustomer.reset();
-      alert("Thêm mới thành công");
+    // let customer = {
+    //   ...this.createFormCustomer.value,
+    //   customerType: {
+    //     id: this.createFormCustomer.controls['customerType'].value
+    //   }
+    // };
+
+    if (this.createFormCustomer.valid) {
+      let customer = this.createFormCustomer.value;
+      return this.customerService.save(customer).subscribe(next => {
+        this.createFormCustomer.reset();
+        alert("Thêm mới thành công");
+        this.router.navigateByUrl("customer/list");
+      });
+    } else {
+      alert("Thêm mới không thành công");
       this.router.navigateByUrl("customer/list");
-    });
+    }
+
 
   }
 
@@ -65,6 +70,7 @@ export class CreateCustomerComponent implements OnInit {
 
   getListCustomerType() {
     this.customerTypeService.getAll().subscribe(next => {
-      this.customerTypeList = next;})
+      this.customerTypeList = next;
+    })
   }
 }

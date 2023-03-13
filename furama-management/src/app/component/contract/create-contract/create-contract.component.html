@@ -11,40 +11,53 @@
 <div class="row">
   <div class="col-3"></div>
   <div class="col-6">
-    <form style="height: 300px">
+    <form style="height: 300px" [formGroup]="formCreateContract" (ngSubmit)="createContract()">
       <div class="mb-3">
         <label for="exampleInputEmail2" class="form-label">Ngày bắt đầu</label>
-        <input type="date" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
+        <input formControlName="startDate" type="date" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
+        <p style="color: red" *ngIf="formCreateContract.controls.startDate.hasError('required') && formCreateContract.controls.startDate.touched">Nhập ngày bắt đầu</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail3" class="form-label">Ngày kết thúc</label>
-        <input type="date" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+        <input formControlName="endDate" type="date" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+        <p style="color: red" *ngIf="formCreateContract.controls.endDate.hasError('required') && formCreateContract.controls.endDate.touched">Nhập ngày kết thúc</p>
       </div>
 
       <div class="mb-3">
         <label for="exampleInputEmail5" class="form-label">Tiền đặt cọc</label>
-        <input type="text" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
+        <input formControlName="deposit" type="text" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
+        <p style="color: red" *ngIf="formCreateContract.controls.deposit.hasError('min') && formCreateContract.controls.deposit.touched">Tiền đặt cọc nhỏ nhất phải là 10</p>
+        <p style="color: red" *ngIf="formCreateContract.controls.deposit.hasError('required') && formCreateContract.controls.deposit.touched">Nhập tiền đặt cọc</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail100" class="form-label">Nhân viên làm hợp đồng</label>
-        <select id="exampleInputEmail100" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-          <option>
+        <select formControlName="employee" id="exampleInputEmail100" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+          <option value="" selected>---Chọn nhân viên---</option>
+          <option *ngFor="let employee of listEmployee" [ngValue]="employee">{{employee.name}}
           </option>
         </select>
+        <p style="color: red" *ngIf="formCreateContract.controls.employee.hasError('required') && formCreateContract.controls.employee.touched">Chọn nhân viên</p>
+
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail7" class="form-label">Khách hàng thuê dịch vụ</label>
-        <select id="exampleInputEmail7" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-          <option>
+        <select formControlName="customer" id="exampleInputEmail7" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+          <option value="" selected>---Chọn khách hàng---</option>
+          <option *ngFor="let customer of listCustomer" [ngValue]="customer">{{customer.name}}
           </option>
         </select>
+        <p style="color: red" *ngIf="formCreateContract.controls.customer.hasError('required') && formCreateContract.controls.customer.touched">Chọn khách hàng</p>
+
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail18" class="form-label">Dịch vụ</label>
-        <select id="exampleInputEmail18" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-          <option>
+        <select formControlName="facility" id="exampleInputEmail18" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+          <option value="" selected>---CHọn dịch vụ---</option>
+          <option *ngFor="let facility of listFacility" [ngValue]="facility">{{facility.name}}
           </option>
         </select>
+        <p style="color: red" *ngIf="formCreateContract.controls.facility.hasError('required') && formCreateContract.controls.facility.touched">Chọn dịch vụ</p>
+
       </div>
       <button type="submit" class="btn btn-primary">Tạo hợp đồng</button>
     </form>

@@ -9,9 +9,12 @@ import {Facility} from "../../../model/facility";
 })
 export class ListFacilityComponent implements OnInit {
   facilityList: Facility [] = [];
+  facilityRemove: Facility;
+  p: number;
 
   constructor(private facilityService:FacilityService) {
     this.getAllFacility();
+
   }
 
   ngOnInit(): void {
@@ -20,7 +23,8 @@ export class ListFacilityComponent implements OnInit {
   getAllFacility(){
     return this.facilityService.getAll().subscribe(next=>{
         this.facilityList = next;
-    })
+        console.log(this.facilityList);
+    });
   }
 
 }
