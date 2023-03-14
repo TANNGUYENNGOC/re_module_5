@@ -45,7 +45,7 @@
       </div>
       <div class="mb-3">
         <label for="facilityType" class="form-label">Loại dịch vụ</label>
-        <select formControlName="facilityType" class="form-select form-select-lg mb-3"
+        <select  formControlName="facilityType" class="form-select form-select-lg mb-3"
                 aria-label=".form-select-lg example">
           <option value="" selected>---Chọn loại dịch vụ---</option>
           <option *ngFor="let facilityType of listFacilityType" [ngValue]="facilityType">{{facilityType.name}}
@@ -81,3 +81,7 @@
 
 </body>
 </html>
+
+<script>
+
+</script>

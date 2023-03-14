@@ -31,7 +31,7 @@
 
         <div class="card-footer">
           <div class="row">
-            <button  type="button" class="btn btn-outline-success col-5" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-right: 30px;margin-left: 10px">
+            <button (click)="facilityRemove = facility" type="button" class="btn btn-outline-success col-5" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-right: 30px;margin-left: 10px">
               Xóa
             </button>
             <button [routerLink]="['/facility/update',facility.id]" type="button" class="btn btn-outline-success col-5">Sửa</button>
@@ -49,6 +49,24 @@
 
 </div>
 </body>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn xóa dịch vụ <span>{{facilityRemove.name}} không ???</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+        <button (click)="removeFacility()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </html>

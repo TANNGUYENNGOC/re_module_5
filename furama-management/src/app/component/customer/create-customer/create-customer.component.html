@@ -18,7 +18,7 @@
             <select   style="color: red" formControlName="customerType" class="form-select form-select-lg mb-3 text-danger"
                     aria-label=".form-select-lg example">
               <option value="" selected>---Chọn loại khách hàng---</option>
-              <option *ngFor="let xxx of customerTypeList" [ngValue]="xxx" value]="xxx.id">{{xxx.name}}
+              <option *ngFor="let xxx of customerTypeList" [ngValue]="xxx">{{xxx.name}}
               </option>
             </select>
           </td>

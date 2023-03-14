@@ -18,14 +18,20 @@ export class ProductListComponent implements OnInit {
   }
 
   getAll() {
-    this.productList = this.productService.getAll();
+    return this.productService.getAll().subscribe(next => {
+      this.productList = next;
+    })
   }
 
   remove(id: number) {
-    if (confirm("Bạn có muốn xóa không???")){
-      this.productService.remove(id);
+    if (confirm("Bạn có muốn xóa không???")) {
+      this.productService.remove(id).subscribe(next=>{
+      this.getAll();
+      });
     } else {
       alert("ừ thì không xóa");
     }
   }
+
+
 }

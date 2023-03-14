@@ -12,7 +12,7 @@ export class ListCustomerComponent implements OnInit {
   p: number;
   idRemoveCustomer:number;
   nameRemoveCustomer:string;
-  zxc = 0;
+
 
 
   constructor(private customerService: CustomerService) {
@@ -38,10 +38,10 @@ export class ListCustomerComponent implements OnInit {
 
   }
 
-  // remove(idRemoveCustomer: number) {
-  //   this.customerService.delete(idRemoveCustomer).subscribe(next=>{
-  //     this.getAllCustomer();
-  //   });
-  //
-  // }
+  remove(idRemoveCustomer: number) {
+    this.customerService.remove(idRemoveCustomer).subscribe(next=>{
+      this.getAllCustomer();
+    });
+
+  }
 }

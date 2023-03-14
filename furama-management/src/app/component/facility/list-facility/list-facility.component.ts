@@ -13,11 +13,12 @@ export class ListFacilityComponent implements OnInit {
   p: number;
 
   constructor(private facilityService:FacilityService) {
-    this.getAllFacility();
 
   }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
+    this.getAllFacility();
+
   }
 
   getAllFacility(){
@@ -25,6 +26,12 @@ export class ListFacilityComponent implements OnInit {
         this.facilityList = next;
         console.log(this.facilityList);
     });
+  }
+
+  removeFacility(){
+    return this.facilityService.remove(this.facilityRemove.id).subscribe(next=>{
+      this.getAllFacility();
+    })
   }
 
 }

@@ -1,0 +1,5 @@
+<form [formGroup]="todoFormUpdate" (ngSubmit)="save()">
+  <p>Nhập nội dung</p>
+  <input formControlName="content" type="text">
+  <button type="submit">save</button>
+</form>

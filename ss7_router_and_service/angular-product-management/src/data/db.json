@@ -1,0 +1,38 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "IPhone 12",
+      "price": 2400000,
+      "description": "new",
+      "category": {
+        "id": 1,
+        "name": "Hàng xịn"
+      }
+    },
+    {
+      "id": 999,
+      "name": "999",
+      "price": 99,
+      "description": "99",
+      "category": {
+        "id": 2,
+        "name": "Hàng hơi xịn"
+      }
+    }
+  ],
+  "categorys": [
+    {
+      "id": 1,
+      "name": "Hàng xịn"
+    },
+    {
+      "id": 2,
+      "name": "Hàng hơi xịn"
+    },
+    {
+      "id": 3,
+      "name": "Hàng dỏm"
+    }
+  ]
+}

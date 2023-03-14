@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators, ValidatorFn} from "@angular/forms";
 import {CustomerService} from "../../../service/customer/customer.service";
 import {FacilityService} from "../../../service/facility/facility.service";
@@ -16,55 +16,61 @@ import {Router} from "@angular/router";
   styleUrls: ['./create-contract.component.css']
 })
 export class CreateContractComponent implements OnInit {
-  formCreateContract:FormGroup;
-  listCustomer:Customer [] = [];
-  listEmployee:Employee [] = [];
-  listFacility:Facility [] = [];
-  constructor(private customerService:CustomerService,
-              private facilityService:FacilityService,
-              private employeeService:EmployeeService,
-              private contractService:ContractService,
-              private router:Router) { }
+  formCreateContract: FormGroup;
+  listCustomer: Customer [] = [];
+  listEmployee: Employee [] = [];
+  listFacility: Facility [] = [];
+
+  constructor(private customerService: CustomerService,
+              private facilityService: FacilityService,
+              private employeeService: EmployeeService,
+              private contractService: ContractService,
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.formCreateContract = new FormGroup({
-      startDate: new FormControl("",[Validators.required]),
-      endDate: new FormControl("",[Validators.required]),
-      deposit: new FormControl("",[Validators.min(10),Validators.required]),
-      employee: new FormControl("",[Validators.required]),
-      customer: new FormControl("",Validators.required),
-      facility: new FormControl("",[Validators.required])
+      startDate: new FormControl("", [Validators.required]),
+      endDate: new FormControl("", [Validators.required]),
+      deposit: new FormControl("", [Validators.min(10), Validators.required]),
+      employee: new FormControl("", [Validators.required]),
+      customer: new FormControl("", Validators.required),
+      facility: new FormControl("", [Validators.required])
     });
     this.getAllCustomer();
     this.getAllEmployee();
     this.getFacility();
   }
 
-  getAllCustomer(){
-    return this.customerService.getAll().subscribe(next=>{
+  getAllCustomer() {
+    return this.customerService.getAll().subscribe(next => {
       this.listCustomer = next;
     })
   }
 
-  getAllEmployee(){
-    return this.employeeService.getAll().subscribe(next=>{
+  getAllEmployee() {
+    return this.employeeService.getAll().subscribe(next => {
       this.listEmployee = next;
     })
   }
 
-  getFacility(){
-    return this.facilityService.getAll().subscribe(next=>{
+  getFacility() {
+    return this.facilityService.getAll().subscribe(next => {
       this.listFacility = next;
     })
   }
 
-
   createContract() {
-    let contract:Contract = this.formCreateContract.value;
-    this.contractService.save(contract).subscribe(next=>{
-      this.formCreateContract.reset();
+    if (this.formCreateContract.valid) {
+      let contract: Contract = this.formCreateContract.value;
+      this.contractService.save(contract).subscribe(next => {
+        this.formCreateContract.reset();
+        alert("Thêm mới thành công");
+        this.router.navigateByUrl("contract/list");
+      })
+    } else {
       alert("Thêm mới thành công");
       this.router.navigateByUrl("contract/list");
-    })
+    }
   }
 }

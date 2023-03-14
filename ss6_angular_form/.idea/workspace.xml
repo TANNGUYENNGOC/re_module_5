@@ -2,31 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ec26165-dacb-4232-9d4c-0f6e28fa7e53" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/contract/create-contract/create-contract.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/contract/create-contract/create-contract.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/contract/create-contract/create-contract.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/contract/create-contract/create-contract.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/contract/list-contract/list-contract.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/contract/list-contract/list-contract.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/contract/list-contract/list-contract.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/contract/list-contract/list-contract.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/customer/create-customer/create-customer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/customer/create-customer/create-customer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/customer/create-customer/create-customer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/customer/create-customer/create-customer.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/customer/list-customer/list-customer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/customer/list-customer/list-customer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/customer/list-customer/list-customer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/customer/list-customer/list-customer.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/customer/update-customer/update-customer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/customer/update-customer/update-customer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/customer/update-customer/update-customer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/customer/update-customer/update-customer.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/facility/create-facility/create-facility.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/facility/create-facility/create-facility.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/facility/create-facility/create-facility.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/facility/create-facility/create-facility.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/facility/list-facility/list-facility.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/facility/list-facility/list-facility.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/facility/list-facility/list-facility.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/facility/list-facility/list-facility.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/facility/update-facility/update-facility.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/facility/update-facility/update-facility.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/facility/update-facility/update-facility.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/facility/update-facility/update-facility.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/component/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/component/navbar/navbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/data/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/data/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/model/customer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/model/customer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/service/customer/customer-type.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/service/customer/customer-type.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/service/customer/customer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/service/customer/customer.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama-management/src/app/service/facility/facility.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../furama-management/src/app/service/facility/facility.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise-register/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exercise-register/src/app/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +22,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../furama-management" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -67,7 +43,7 @@
       <option name="presentableId" value="Default" />
       <updated>1678429943082</updated>
       <workItem from="1678429944293" duration="4756000" />
-      <workItem from="1678716462117" duration="583000" />
+      <workItem from="1678716462117" duration="1203000" />
     </task>
     <servers />
   </component>
@@ -75,10 +51,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="100" key="FileChooserDialogImpl" timestamp="1678433146394">
+    <state x="421" y="100" key="FileChooserDialogImpl" timestamp="1678718464399">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="421" y="100" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1678433146394" />
+    <state x="421" y="100" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1678718464399" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1678430395389">
       <screen x="0" y="0" width="1280" height="689" />
     </state>

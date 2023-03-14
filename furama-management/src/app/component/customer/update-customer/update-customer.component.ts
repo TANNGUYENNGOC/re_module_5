@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CustomerType} from "../../../model/customer-type";
 import {CustomerService} from "../../../service/customer/customer.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -21,15 +21,15 @@ export class UpdateCustomerComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private router: Router) {
     this.formUpdateCustomer = new FormGroup({
-      id: new FormControl(),
-      customerType: new FormControl(),
-      name: new FormControl(),
-      dateOfBirth: new FormControl(),
-      gender: new FormControl(),
-      idCard: new FormControl(),
-      phoneNumber: new FormControl(),
-      email: new FormControl(),
-      address: new FormControl()
+      id: new FormControl("",[Validators.required]),
+      customerType: new FormControl("",[Validators.required]),
+      name: new FormControl("",[Validators.required]),
+      dateOfBirth: new FormControl("",[Validators.required]),
+      gender: new FormControl("",[Validators.required]),
+      idCard: new FormControl("",[Validators.required]),
+      phoneNumber: new FormControl("",[Validators.required]),
+      email: new FormControl("",[Validators.required]),
+      address: new FormControl("",[Validators.required])
     });
 
   }
@@ -75,11 +75,16 @@ export class UpdateCustomerComponent implements OnInit {
     //     id: this.formUpdateCustomer.controls['customerType'].value
     //   }
     // };
-
-    let customer = this.formUpdateCustomer.value;
-    return this.customerService.update(customer.id, customer).subscribe(next => {
-      alert("Chỉnh sửa thành công");
+    if(this.formUpdateCustomer.valid){
+      let customer = this.formUpdateCustomer.value;
+      return this.customerService.update(customer.id, customer).subscribe(next => {
+        alert("Chỉnh sửa thành công");
+        this.router.navigateByUrl("customer/list");
+      })
+    }else {
+      alert("Chỉnh sửa không thành công");
       this.router.navigateByUrl("customer/list");
-    })
+    }
+
   }
 }

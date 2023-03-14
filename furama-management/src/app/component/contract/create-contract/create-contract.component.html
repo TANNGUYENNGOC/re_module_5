@@ -59,7 +59,7 @@
         <p style="color: red" *ngIf="formCreateContract.controls.facility.hasError('required') && formCreateContract.controls.facility.touched">Chọn dịch vụ</p>
 
       </div>
-      <button type="submit" class="btn btn-primary">Tạo hợp đồng</button>
+      <button [disabled]="!formCreateContract.valid" type="submit" class="btn btn-primary">Tạo hợp đồng</button>
     </form>
   </div>
   <div class="col-3"></div>

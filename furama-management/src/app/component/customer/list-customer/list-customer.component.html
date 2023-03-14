@@ -23,9 +23,9 @@
       <th scope="col">Xóa</th>
     </tr>
     </thead>
-    <tbody *ngFor="let customer of customerList | paginate:{itemsPerPage:5,currentPage: p}">
+    <tbody *ngFor="let customer of customerList | paginate:{itemsPerPage:5,currentPage: p}, index as i">
     <tr>
-      <td>{{customer.id}}</td>
+      <td>{{i+1}}</td>
       <td>{{customer.customerType.name}}</td>
       <td>{{customer.name}}</td>
       <td>{{customer.dateOfBirth}}</td>
@@ -64,12 +64,10 @@
       </div>
       <div class="modal-body">
         Bạn có muốn xóa khách hàng <span style="color: red">{{nameRemoveCustomer}}</span> không ???
-        <input type="text" [(ngModel)]="zxc">
-        <p>{{zxc}}</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-<!--        <button (click)="remove(idRemoveCustomer)" type="button" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>-->
+        <button (click)="remove(idRemoveCustomer)" type="button" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>
       </div>
     </div>
   </div>
