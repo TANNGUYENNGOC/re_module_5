@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {FacilityService} from "../../../service/facility/facility.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {RentTypeService} from "../../../service/facility/rent-type.service";
 import {FacilityTypeService} from "../../../service/facility/facility-type.service";
 import {FacilityType} from "../../../model/facility-type";
 import {RentType} from "../../../model/rent-type";
 import {Customer} from "../../../model/customer";
+import {Facility} from "../../../model/facility";
 
 @Component({
   selector: 'app-update-facility',
@@ -21,7 +22,8 @@ export class UpdateFacilityComponent implements OnInit {
   constructor(private facilityService: FacilityService,
               private activatedRoute: ActivatedRoute,
               private rentTypeService: RentTypeService,
-              private facilityTypeService: FacilityTypeService) {
+              private facilityTypeService: FacilityTypeService,
+              private router:Router) {
     this.activatedRoute.paramMap.subscribe(next => {
       let id = parseInt(next.get('id'));
       if (id != null) {
@@ -34,16 +36,16 @@ export class UpdateFacilityComponent implements OnInit {
 
   ngOnInit(): void {
     this.formUpdateFacility = new FormGroup({
-      id: new FormControl(),
-      name: new FormControl(),
+      id: new FormControl("",[Validators.required]),
+      name: new FormControl("",[Validators.required]),
       img: new FormControl(),
-      area: new FormControl(),
-      cost: new FormControl(),
-      maxPeople: new FormControl(),
-      rentType: new FormControl(),
-      facilityType: new FormControl(),
-      standardRoom: new FormControl(),
-      descriptionOtherConvenience: new FormControl(),
+      area: new FormControl("",[Validators.required]),
+      cost: new FormControl("",[Validators.required]),
+      maxPeople: new FormControl("",[Validators.required]),
+      rentType: new FormControl("",[Validators.required]),
+      facilityType: new FormControl("",[Validators.required]),
+      standardRoom: new FormControl("",[Validators.required]),
+      descriptionOtherConvenience: new FormControl("",[Validators.required]),
       poolArea: new FormControl(),
       numberOfFloors: new FormControl(),
       facilityFree: new FormControl(),
@@ -65,5 +67,18 @@ export class UpdateFacilityComponent implements OnInit {
     return this.rentTypeService.getAll().subscribe(next => {
       this.listRentType = next;
     })
+  }
+
+  updateFacility() {
+    if(this.formUpdateFacility.valid){
+      let facility:Facility = this.formUpdateFacility.value;
+      this.facilityService.update(facility.id,facility).subscribe(next=>{
+        alert("Chỉnh sửa thành công");
+        this.router.navigateByUrl("customer/list");
+      })
+    } else {
+      alert("Chỉnh sửa thành công");
+      this.router.navigateByUrl("customer/list");
+    }
   }
 }

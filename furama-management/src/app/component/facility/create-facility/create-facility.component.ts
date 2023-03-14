@@ -32,7 +32,7 @@ export class CreateFacilityComponent implements OnInit {
       rentType: new FormControl("",[Validators.required]),
       facilityType: new FormControl("",[Validators.required]),
       standardRoom: new FormControl("",[Validators.required]),
-      descriptionOtherConvenience: new FormControl(),
+      descriptionOtherConvenience: new FormControl("",[Validators.required]),
       poolArea: new FormControl(),
       numberOfFloors: new FormControl(),
       facilityFree: new FormControl(),
@@ -43,11 +43,17 @@ export class CreateFacilityComponent implements OnInit {
   }
 
   createFacility() {
-    let ffacility: Facility = this.formCreateFacility.value;
-    this.facilityService.save(ffacility).subscribe(next=>{
-      alert("Thêm mới thành công");
+    if (this.formCreateFacility.valid){
+      let ffacility: Facility = this.formCreateFacility.value;
+      this.facilityService.save(ffacility).subscribe(next=>{
+        alert("Thêm mới thành công");
+        this.router.navigateByUrl("facility/list");
+      });
+    } else {
+      alert("Thêm mới không thành công");
       this.router.navigateByUrl("facility/list");
-    });
+    }
+
   }
 
   getAllFacilityType(){

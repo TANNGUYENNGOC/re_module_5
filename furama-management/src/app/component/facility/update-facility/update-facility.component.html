@@ -9,7 +9,7 @@
 <div class="row">
   <div class="col-3"></div>
   <div class="col-6">
-    <form [formGroup]="formUpdateFacility" id="facilityType" style="height: 300px">
+    <form [formGroup]="formUpdateFacility" id="facilityType" style="height: 300px" (ngSubmit)="updateFacility()">
       <div  class="mb-3">
         <label for="exampleInputEmail115" class="form-label">ID:</label>
         <input formControlName="id" type="text" class="form-control" id="exampleInputEmail115" aria-describedby="emailHelp">
@@ -17,6 +17,9 @@
       <div class="mb-3">
         <label for="exampleInputEmail000" class="form-label">Tên dịch vụ</label>
         <input formControlName="name" type="text" class="form-control" id="exampleInputEmail000" aria-describedby="emailHelp">
+
+        <p style="color: red" *ngIf="formUpdateFacility.controls.name.hasError('required') && formUpdateFacility.controls.name.touched">Nhập tên dịch vụ</p>
+
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail2" class="form-label">Link ảnh mô tả</label>
@@ -25,16 +28,19 @@
       <div class="mb-3">
         <label for="exampleInputEmail3" class="form-label">Diện tích sử dụng</label>
         <input formControlName="area" type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+        <p style="color: red" *ngIf="formUpdateFacility.controls.area.hasError('required') && formUpdateFacility.controls.area.touched">Nhập diện tích</p>
 
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail15" class="form-label">Chi phí thuê</label>
         <input formControlName="cost" type="text" class="form-control" id="exampleInputEmail15" aria-describedby="emailHelp">
+        <p style="color: red" *ngIf="formUpdateFacility.controls.cost.hasError('required') && formUpdateFacility.controls.cost.touched">Nhập chi phí</p>
 
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail5" class="form-label">Số người tối đa</label>
         <input formControlName="maxPeople" type="text" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
+        <p style="color: red" *ngIf="formUpdateFacility.controls.maxPeople.hasError('required') && formUpdateFacility.controls.maxPeople.touched">Nhập số người tối đa</p>
 
       </div>
 
@@ -45,6 +51,8 @@
           <option *ngFor="let rentType of listRentType"> {{rentType.name}}
           </option>
         </select>
+        <p style="color: red" *ngIf="formUpdateFacility.controls.rentType.hasError('required') && formUpdateFacility.controls.rentType.touched">Chọn kiểu thuê</p>
+
       </div>
       <div class="mb-3">
         <label for="facilityType" class="form-label">Loại dịch vụ</label>
@@ -52,15 +60,21 @@
           <option *ngFor="let facilityType of listFacilityType">{{facilityType.name}}
           </option>
         </select>
+        <p style="color: red" *ngIf="formUpdateFacility.controls.facilityType.hasError('required') && formUpdateFacility.controls.facilityType.touched">Chọn kiểu thuê</p>
+
       </div>
 
       <div id="standardRoom" class="mb-3">
         <label for="standardRoom" class="form-label">Tiêu chuẩn phòng</label>
         <input formControlName="standardRoom" type="text" class="form-control"  aria-describedby="emailHelp">
+        <p style="color: red" *ngIf="formUpdateFacility.controls.standardRoom.hasError('required') && formUpdateFacility.controls.standardRoom.touched">Nhập tiêu chuẩn phòng</p>
+
       </div>
       <div id="descriptionOtherConvenience" class="mb-3">
         <label for="descriptionOtherConvenience" class="form-label">Mô tả tiện nghi khác</label>
         <input formControlName="descriptionOtherConvenience" type="text" class="form-control"  aria-describedby="emailHelp">
+        <p style="color: red" *ngIf="formUpdateFacility.controls.descriptionOtherConvenience.hasError('required') && formUpdateFacility.controls.descriptionOtherConvenience.touched">Nhập mô tả</p>
+
       </div>
       <div id="poolArea" class="mb-3">
         <label  for="poolArea" class="form-label">Diện tích hồ bơi</label>
@@ -74,7 +88,7 @@
         <label for="facilityFree" class="form-label">Dịch vụ miễn phí</label>
         <input formControlName="facilityFree" type="text" class="form-control"  aria-describedby="emailHelp">
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button [disabled]="!formUpdateFacility.valid" type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
   <div class="col-3"></div>
