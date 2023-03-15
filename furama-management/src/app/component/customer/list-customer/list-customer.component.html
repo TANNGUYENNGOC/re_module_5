@@ -2,12 +2,27 @@
   <app-header></app-header>
   <app-navbar></app-navbar>
   <div class="row" style="margin-top: 10px">
-    <div class="col-9"></div>
-<!--    <button routerLink="/customer/create" type="button" class="btn btn-success col-3">Thêm mới</button>-->
+    <div class="col-9">
+      <nav class="navbar bg-light">
+        <div class="container-fluid">
+          <div class="d-flex">
+            <input #customerName class="form-control me-2" type="search" placeholder="Tên khách hàng"
+                   aria-label="Search">
+            <input #customerEmail class="form-control me-2" type="search" placeholder="email" aria-label="Search">
+            <select #customerType class="form-select me-2" aria-label="Default select example">
+              <option selected value="">Loại khách hàng</option>
+              <option *ngFor="let customerType of customerTypeList">{{customerType.name}}</option>
+            </select>
+            <button (click)="searchCustomer(customerName.value,customerEmail.value,customerType.value)" class="btn btn-outline-success" type="submit">Search</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!--    <button routerLink="/customer/create" type="button" class="btn btn-success col-3">Thêm mới</button>-->
     <a href="/customer/create" type="button" class="btn btn-success col-3">Thêm mới</a>
   </div>
 
-  <table class="table">
+  <table class="table table-light table-striped table-bordered">
     <thead>
     <tr>
       <th scope="col">STT</th>
@@ -25,7 +40,7 @@
     </thead>
     <tbody *ngFor="let customer of customerList | paginate:{itemsPerPage:5,currentPage: p}, index as i">
     <tr>
-      <td>{{i+1}}</td>
+      <td>{{i + 1}}</td>
       <td>{{customer.customerType.name}}</td>
       <td>{{customer.name}}</td>
       <td>{{customer.dateOfBirth}}</td>
@@ -40,9 +55,10 @@
       <td>
         <button [routerLink]="['/customer/update',customer.id]" type="button" class="btn btn-warning">Sửa</button>
       </td>
-<!--      <td><img src="https://media.istockphoto.com/id/1176969364/vi/anh/nh%C3%A0-t%C3%B9-c%C5%A9-c%E1%BB%A7a-%C4%91%E1%BB%A9c.jpg?s=1024x1024&w=is&k=20&c=7Baosfv0MDSeNaZX8QdkEBBLHYC0-KLX89rxfkYcQs0=" alt=""></td>-->
+      <!--      <td><img src="https://media.istockphoto.com/id/1176969364/vi/anh/nh%C3%A0-t%C3%B9-c%C5%A9-c%E1%BB%A7a-%C4%91%E1%BB%A9c.jpg?s=1024x1024&w=is&k=20&c=7Baosfv0MDSeNaZX8QdkEBBLHYC0-KLX89rxfkYcQs0=" alt=""></td>-->
       <td>
-        <button (click)="customerRemove(customer.id,customer.name)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button (click)="customerRemove(customer.id,customer.name)" type="button" class="btn btn-primary"
+                data-bs-toggle="modal" data-bs-target="#exampleModal">
           Xóa
         </button>
       </td>
@@ -67,7 +83,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-        <button (click)="remove(idRemoveCustomer)" type="button" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>
+        <button (click)="remove(idRemoveCustomer)" type="button" data-bs-dismiss="modal" class="btn btn-primary">Xóa
+        </button>
       </div>
     </div>
   </div>

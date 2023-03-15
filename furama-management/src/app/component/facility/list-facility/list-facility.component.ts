@@ -9,15 +9,18 @@ import {Facility} from "../../../model/facility";
 })
 export class ListFacilityComponent implements OnInit {
   facilityList: Facility [] = [];
-  facilityRemove: Facility;
+  facilityRemove: Facility={};
   p: number;
+  idremove:number;
+  nameRemove: string;
+  facilityDetail: Facility= {};
 
   constructor(private facilityService:FacilityService) {
 
   }
 
-   ngOnInit(): void {
-    this.getAllFacility();
+    ngOnInit(): void {
+      this.getAllFacility();
 
   }
 
@@ -33,5 +36,4 @@ export class ListFacilityComponent implements OnInit {
       this.getAllFacility();
     })
   }
-
 }

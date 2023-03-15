@@ -5,6 +5,7 @@ import {CustomerService} from "../../../service/customer/customer.service";
 import {Customer} from "../../../model/customer";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-create-customer',
@@ -17,7 +18,8 @@ export class CreateCustomerComponent implements OnInit {
 
   constructor(private customerTypeService: CustomerTypeService,
               private customerService: CustomerService,
-              private router: Router) {
+              private router: Router,
+              private toast:ToastrService) {
 
 
   }
@@ -49,11 +51,11 @@ export class CreateCustomerComponent implements OnInit {
       let customer = this.createFormCustomer.value;
       return this.customerService.save(customer).subscribe(next => {
         this.createFormCustomer.reset();
-        alert("Thêm mới thành công");
+        this.toast.success("Thêm mới không thành công","Thêm mới");
         this.router.navigateByUrl("customer/list");
       });
     } else {
-      alert("Thêm mới không thành công");
+      this.toast.success("Thêm mới không thành công","Thêm mới");
       this.router.navigateByUrl("customer/list");
     }
 

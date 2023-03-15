@@ -6,7 +6,7 @@
   <ul>
     <li
       [class.complete]="todo.complete"
-      *ngFor="let todo of todos; index as i">
+      *ngFor="let todo of todos; index as i">{{i}}.
       {{todo.content}}
       <button (click)="toggleTodo(todo.id)">delete</button>
       <button [routerLink]="['update',todo.id]">update</button>

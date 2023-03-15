@@ -20,6 +20,9 @@ import { CreateContractComponent } from './component/contract/create-contract/cr
 import { ListContractComponent } from './component/contract/list-contract/list-contract.component';
 import { ListEmployeeComponent } from './component/employee/list-employee/list-employee.component';
 import { UpdateContractComponent } from './component/contract/update-contract/update-contract.component';
+import {CommonModule} from "@angular/common";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastrModule} from "ngx-toastr";
 
 
 @NgModule({
@@ -47,6 +50,9 @@ import { UpdateContractComponent } from './component/contract/update-contract/up
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

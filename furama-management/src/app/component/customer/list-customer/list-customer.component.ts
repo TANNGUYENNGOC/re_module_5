@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from "../../../model/customer";
 import {CustomerService} from "../../../service/customer/customer.service";
+import {CustomerTypeService} from "../../../service/customer/customer-type.service";
+import {CustomerType} from "../../../model/customer-type";
 
 @Component({
   selector: 'app-list-customer',
@@ -9,15 +11,17 @@ import {CustomerService} from "../../../service/customer/customer.service";
 })
 export class ListCustomerComponent implements OnInit {
   customerList: Customer [] = [];
+  customerTypeList: CustomerType [] = [];
   p: number;
   idRemoveCustomer:number;
   nameRemoveCustomer:string;
 
 
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService,
+              private customerTypeService:CustomerTypeService) {
     this.getAllCustomer();
-
+    this.getAllCustomerType();
   }
 
   ngOnInit(): void {
@@ -31,6 +35,11 @@ export class ListCustomerComponent implements OnInit {
     })
   }
 
+  getAllCustomerType(){
+    return this.customerTypeService.getAll().subscribe(next=>{
+      this.customerTypeList = next;
+    })
+  }
 
   customerRemove(id: number, name: string) {
     this.idRemoveCustomer = id;
@@ -43,5 +52,12 @@ export class ListCustomerComponent implements OnInit {
       this.getAllCustomer();
     });
 
+  }
+
+  searchCustomer(nameCustomer: string, emailCustomer: string, customerType: string) {
+    this.customerService.searchCustomer(nameCustomer,emailCustomer,customerType).subscribe(next=>{
+      this.customerList = next;
+
+    })
   }
 }

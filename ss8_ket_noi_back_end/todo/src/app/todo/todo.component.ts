@@ -16,10 +16,11 @@ export class TodoComponent implements OnInit {
   content = new FormControl();
 
   constructor(private todoService: TodoService) {
+    this.getAllTodo();
+
   }
 
   ngOnInit(): void {
-    this.getAllTodo();
   }
 
   toggleTodo(id: number) {
@@ -38,9 +39,8 @@ export class TodoComponent implements OnInit {
         complete: false
       };
       this.todoService.save(todo).subscribe(() => {
-        alert('thành công')
+        alert('Thêm mới thành công')
       })
-      this.todos.push(todo);
       this.content.reset();
     }
   }

@@ -9,6 +9,7 @@ import {Facility} from "../../../model/facility";
 import {Contract} from "../../../model/contract";
 import {ContractService} from "../../../service/contract/contract.service";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-create-contract',
@@ -25,7 +26,8 @@ export class CreateContractComponent implements OnInit {
               private facilityService: FacilityService,
               private employeeService: EmployeeService,
               private contractService: ContractService,
-              private router: Router) {
+              private router: Router,
+              private toast:ToastrService) {
   }
 
   ngOnInit(): void {
@@ -65,11 +67,11 @@ export class CreateContractComponent implements OnInit {
       let contract: Contract = this.formCreateContract.value;
       this.contractService.save(contract).subscribe(next => {
         this.formCreateContract.reset();
-        alert("Thêm mới thành công");
+        this.toast.success("Thêm mới thành công","Thêm mới");
         this.router.navigateByUrl("contract/list");
       })
     } else {
-      alert("Thêm mới thành công");
+      this.toast.success("Thêm mới mới thành công","Thêm mới");
       this.router.navigateByUrl("contract/list");
     }
   }

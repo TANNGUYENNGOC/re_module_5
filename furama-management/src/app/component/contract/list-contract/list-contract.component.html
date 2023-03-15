@@ -39,10 +39,7 @@
       <td>{{contract.customer.name}}</td>
       <td>{{contract.facility.name}}</td>
       <td>
-<!--        <button (click)="temp=contract" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">-->
-<!--          Xóa-->
-<!--        </button>-->
-        <button (click)="id = contract.id" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button (click)="temp = contract" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
           Xóa
         </button>
       </td>
@@ -50,25 +47,25 @@
     </tbody>
   </table>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Bạn có muốn xóa hợp đồng có <span>{{id}}</span> không ???
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-          <button (click)="remove()" type="button" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<app-footter></app-footter>
 </div>
 </body>
 </html>
 
-
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn xóa hợp đồng có id là <span>{{temp.id}}</span> không ???
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+        <button (click)="remove()" type="button" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>

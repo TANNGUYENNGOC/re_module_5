@@ -7,6 +7,7 @@ import {Facility} from "../../../model/facility";
 import {Router} from "@angular/router";
 import {FacilityType} from "../../../model/facility-type";
 import {RentType} from "../../../model/rent-type";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-create-facility',
@@ -20,7 +21,8 @@ export class CreateFacilityComponent implements OnInit {
   constructor(private facilityService:FacilityService,
               private facilityTypeService:FacilityTypeService,
               private rentTypeService:RentTypeService,
-              private router:Router) { }
+              private router:Router,
+              toastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.formCreateFacility = new FormGroup({

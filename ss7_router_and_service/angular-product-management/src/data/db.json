@@ -19,6 +19,16 @@
         "id": 2,
         "name": "Hàng hơi xịn"
       }
+    },
+    {
+      "id": 567,
+      "name": "hjk",
+      "price": 78,
+      "description": "88",
+      "category": {
+        "id": 1,
+        "name": "Hàng xịn"
+      }
     }
   ],
   "categorys": [

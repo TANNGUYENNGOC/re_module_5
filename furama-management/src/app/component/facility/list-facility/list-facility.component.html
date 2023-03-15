@@ -22,8 +22,8 @@
   <div class="row">
     <div class="col-1"></div>
     <div class="row col-10" style="box-sizing: border-box">
-      <div *ngFor="let facility of facilityList | paginate:{itemsPerPage:3,currentPage: p}" class="card col-4" style="box-sizing: border-box">
-        <img style="height: 300px" src="{{facility.img}}" class="card-img-top" alt="Không có ảnh">
+      <div *ngFor="let facility of facilityList | paginate:{itemsPerPage:3,currentPage: p}" class="card col-4"  style="box-sizing: border-box">
+        <img style="height: 300px" src="{{facility.img}}" class="card-img-top btn" alt="Không có ảnh" data-bs-toggle="modal" data-bs-target="#detail" (click)="facilityDetail =facility">
         <div class="card-body">
           <h5 class="card-title">{{facility.name}}</h5>
           <p class="card-text">Room size: {{facility.area}}</p>
@@ -31,7 +31,7 @@
 
         <div class="card-footer">
           <div class="row">
-            <button (click)="facilityRemove = facility" type="button" class="btn btn-outline-success col-5" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-right: 30px;margin-left: 10px">
+            <button (click)="facilityRemove = facility" type="button" class="btn btn-outline-success col-5" data-bs-toggle="modal" data-bs-target="#delete" style="margin-right: 30px;margin-left: 10px">
               Xóa
             </button>
             <button [routerLink]="['/facility/update',facility.id]" type="button" class="btn btn-outline-success col-5">Sửa</button>
@@ -50,23 +50,53 @@
 </div>
 </body>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+
+</html>
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Xóa</h1>
+        <button type="button" class="btn-close"  aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Bạn có muốn xóa dịch vụ <span>{{facilityRemove.name}} không ???</span>
+        Bạn có muốn xóa dịch vụ <span style="color: red">{{facilityRemove.name}}</span> không ???
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-        <button (click)="removeFacility()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Xóa</button>
+        <button (click)="removeFacility()" type="button" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>
       </div>
     </div>
   </div>
 </div>
 
 
-</html>
+<div class="modal fade" id="detail" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel1">Thông tin chi tiết</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Tên dịch vụ: {{facilityDetail.name}}</p>
+        <p>Diện tích sử dụng: {{facilityDetail.area}}</p>
+        <p>Chi phí thuê: {{facilityDetail.cost}}</p>
+        <p>Số người tối đa: {{facilityDetail.maxPeople}}</p>
+        <p>Kiểu thuê: {{facilityDetail.rentType.name}}</p>
+        <p>Loại dịch vụ: {{facilityDetail.facilityType.name}}</p>
+        <p>Tiêu chuẩn phòng: {{facilityDetail.standardRoom}}</p>
+        <p>Mô tả tiện nghi khác: {{facilityDetail.descriptionOtherConvenience}}</p>
+        <p>Mô tả tiện nghi khác: {{facilityDetail.descriptionOtherConvenience}}</p>
+        <p>Diện tích hồ bơi: {{facilityDetail.poolArea}}</p>
+        <p>Số tầng: {{facilityDetail.numberOfFloors}}</p>
+        <p>Dịch vụ miễn phí: {{facilityDetail.facilityFree}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
