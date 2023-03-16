@@ -9,6 +9,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {UpdateProductComponent} from './product/update-product/update-product.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ProductModule} from "./product/product.module";
+import {SharedModule} from "./shared/shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {ProductModule} from "./product/product.module";
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ProductModule
+    ProductModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

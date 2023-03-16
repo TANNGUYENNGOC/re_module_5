@@ -54,7 +54,7 @@ export class ListCustomerComponent implements OnInit {
 
   }
 
-  searchCustomer(nameCustomer: string, emailCustomer: string, customerType: string) {
+   searchCustomer(nameCustomer: string, emailCustomer: string, customerType: string) {
     this.customerService.searchCustomer(nameCustomer,emailCustomer,customerType).subscribe(next=>{
       this.customerList = next;
 

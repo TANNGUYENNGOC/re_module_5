@@ -1,0 +1,27 @@
+<button routerLink="/create" type="button" class="btn btn-success">Thêm mới</button>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">STT</th>
+    <th scope="col">ID</th>
+    <th scope="col">Tên</th>
+    <th scope="col">Giới tính</th>
+    <th scope="col">Lớp</th>
+    <th scope="col">Sửa</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let student of listStudent,index as i">
+    <th scope="row">{{i + 1}}</th>
+    <td>{{student.id}}</td>
+    <td>{{student.name}}</td>
+    <td *ngIf="student.gender === 1">Nam</td>
+    <td *ngIf="student.gender === 0">Nam</td>
+    <td *ngIf="student.gender === 2">Khác</td>
+    <td>{{student.clazz.name}}</td>
+    <td>
+      <button [routerLink]="['/update',student.id]" type="button" class="btn btn-danger">Sửa</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

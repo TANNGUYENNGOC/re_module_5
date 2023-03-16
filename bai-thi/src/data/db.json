@@ -1,0 +1,60 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Nguyễn Ngọc Tấn  ",
+      "gender": 1,
+      "clazz": {
+        "id": 1,
+        "name": "C0922G1"
+      }
+    },
+    {
+      "name": "Học Sinh Tiến",
+      "gender": 1,
+      "clazz": {
+        "id": 3,
+        "name": "C0722G1"
+      },
+      "id": 2
+    },
+    {
+      "name": "Trần Quốc Đạt",
+      "gender": 1,
+      "clazz": {
+        "id": 2,
+        "name": "C0822G1"
+      },
+      "id": 3
+    },
+    {
+      "name": "Tiến Sida",
+      "gender": 2,
+      "clazz": {
+        "id": 1,
+        "name": "C0922G1"
+      },
+      "id": 4
+    },
+    {
+      "name": null,
+      "gender": null,
+      "clazz": null,
+      "id": 5
+    }
+  ],
+  "clazzs": [
+    {
+      "id": 1,
+      "name": "C0922G1"
+    },
+    {
+      "id": 2,
+      "name": "C0822G1"
+    },
+    {
+      "id": 3,
+      "name": "C0722G1"
+    }
+  ]
+}

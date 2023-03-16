@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { ImgSliderRoutingModule } from './img-slider-routing.module';
-import { ImgSliderComponent } from './img-slider/img-slider.component';
-import { ImgSlideComponent } from './img-slide/img-slide.component';
+import {ImgSliderRoutingModule} from './img-slider-routing.module';
+import {ImgSliderComponent} from './img-slider/img-slider.component';
 
 
 @NgModule({
-  declarations: [ImgSliderComponent, ImgSlideComponent],
+  declarations: [ImgSliderComponent],
   imports: [
     CommonModule,
     ImgSliderRoutingModule
   ]
 })
-export class ImgSliderModule { }
+export class ImgSliderModule {
+}

@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {ImgSliderComponent} from "./img-slider/img-slider.component";
-import {ImgSlideComponent} from "./img-slide/img-slide.component";
 
 
 const routes: Routes = [
   {path:"",component:ImgSliderComponent},
   {path:"slider",component:ImgSliderComponent},
-  {path:"slide",component:ImgSlideComponent},
 ];
 
 @NgModule({
