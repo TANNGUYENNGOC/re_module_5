@@ -1,0 +1,76 @@
+<div class="row">
+  <h1 class="text-center">Chỉnh sửa</h1>
+  <div class="col-3"></div>
+  <div class="col-6">
+    <form [formGroup]="formUpdate" (ngSubmit)="update()">
+      <div  class="mb-3">
+        <label for="exampleInputEmail" class="form-label">Số Xe:</label>
+        <input  formControlName="id" type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <p>Chọn loại xe: </p>
+        <select [compareWith]="compareWidth" formControlName="loaiXe" class="form-select" aria-label="Default select example">
+          <option value="" selected>---Chọn loại xe---</option>
+          <option  *ngFor="let loaiXe of loaiXeList" [ngValue]="loaiXe">{{loaiXe.tenLoaiXe}}</option>
+        </select>
+        <p style="color: red" *ngIf="formUpdate.controls.loaiXe.hasError('required') && formUpdate.controls.loaiXe.touched">Chọn loại xe</p>
+
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Tên nhà xe</label>
+          <input formControlName="tenNhaXe" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <p style="color: red" *ngIf="formUpdate.controls.tenNhaXe.hasError('required') && formUpdate.controls.tenNhaXe.touched">Nhập tên nhà xe</p>
+
+
+        <div class="mb-3">
+          <label for="exampleInputEmail3" class="form-label">Điểm đi</label>
+          <input formControlName="diemDi" type="email" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+        </div>
+        <p style="color: red" *ngIf="formUpdate.controls.diemDi.hasError('required') && formUpdate.controls.diemDi.touched">Nhập điểm đi</p>
+
+
+        <div class="mb-3">
+          <label for="exampleInputEmail4" class="form-label">Điểm đến</label>
+          <input formControlName="diemDen" type="email" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp">
+        </div>
+        <p style="color: red" *ngIf="formUpdate.controls.diemDen.hasError('required') && formUpdate.controls.diemDen.touched">Nhập điểm đến</p>
+
+
+        <div class="mb-3">
+          <label for="exampleInputEmail5" class="form-label">Số điện thoại</label>
+          <input formControlName="sdt" type="email" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
+        </div>
+        <p style="color: red" *ngIf="formUpdate.controls.sdt.hasError('required') && formUpdate.controls.sdt.touched">Nhập số điện thoại</p>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail6" class="form-label">Email</label>
+          <input formControlName="email" type="email" class="form-control" id="exampleInputEmail6" aria-describedby="emailHelp">
+        </div>
+        <p style="color: red" *ngIf="formUpdate.controls.email.hasError('required') && formUpdate.controls.email.touched">Nhập email</p>
+        <p style="color: red" *ngIf="formUpdate.controls.email.hasError('email') && formUpdate.controls.email.touched">Nhập email không đúng định dạng</p>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail7" class="form-label">Giờ đi</label>
+          <input formControlName="gioDi" type="time" class="form-control" id="exampleInputEmail7" aria-describedby="emailHelp">
+        </div>
+        <p style="color: red" *ngIf="formUpdate.controls.gioDi.hasError('required') && formUpdate.controls.gioDi.touched">Nhập giờ đi</p>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail8" class="form-label">Giờ đến</label>
+          <input formControlName="gioDen" type="time" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp">
+        </div>
+        <p style="color: red" *ngIf="formUpdate.controls.gioDen.hasError('required') && formUpdate.controls.gioDen.touched">Nhập đến</p>
+
+      </div>
+      <div>
+        <button style="margin-right: 10px" [disabled]="!formUpdate.valid"  type="submit" class="btn btn-primary">Sửa</button>
+        <button  routerLink="" type="submit" class="btn btn-primary">Quay về</button>
+      </div>
+
+    </form>
+  </div>
+  <div class="col-3"></div>
+</div>
+
+

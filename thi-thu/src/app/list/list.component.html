@@ -1,0 +1,69 @@
+<app-header></app-header>
+<nav class="navbar bg-light">
+  <div class="container-fluid">
+    <div class="d-flex" role="search">
+      <input  class="form-control me-2" type="search" placeholder="Name" aria-label="Search">
+      <select class="form-select me-2" aria-label="Default select example">
+        <option selected value="">---Chọn lớp---</option>
+        <option ></option>
+      </select>
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </div>
+  </div>
+</nav>
+<br>
+<button [routerLink]="['/create']" type="button" class="btn btn-success">Thêm mới</button>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Số xe</th>
+    <th scope="col">Loại xe</th>
+    <th scope="col">Tên nhà xe</th>
+    <th scope="col">Điểm đi</th>
+    <th scope="col">Điểm đến</th>
+    <th scope="col">Số điện thoại</th>
+    <th scope="col">Email</th>
+    <th scope="col">Giờ đi</th>
+    <th scope="col">Giờ đến</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let xe of listXe" >
+    <th scope="row">{{xe.id}}</th>
+    <td>{{xe.tenLoaiXe}}</td>
+    <td>{{xe.tenNhaXe}}</td>
+    <td>{{xe.diemDi}}</td>
+    <td>{{xe.diemDen}}</td>
+    <td>{{xe.sdt}}</td>
+    <td>{{xe.email}}</td>
+    <td>{{xe.gioDi}}</td>
+    <td>{{xe.gioDen}}</td>
+
+    <td>
+      <button [routerLink]="['/update',xe.id]" type="button" class="btn btn-danger">Sửa</button>
+    </td>
+    <td><button (click)="xeRemove = xe" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Xóa
+    </button></td>
+  </tr>
+  </tbody>
+</table>
+<app-footter></app-footter>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Xác Nhận</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có đồng ý xóa thông tin của xe khác có biển số xe  <span style="color: red;">{{xeRemove?.id}}</span>  không ???
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+        <button (click)="removeXe()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ServiceService} from '../service/service.service';
 import {Student} from '../../model/student';
+import {Clazz} from '../../model/clazz';
+
 
 @Component({
   selector: 'app-list',
@@ -8,16 +10,12 @@ import {Student} from '../../model/student';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  listStudent : Student [] = [];
-  constructor(private studentService:ServiceService) { }
+
+
+  constructor() {
+  }
 
   ngOnInit(): void {
-    this.getAllStudent();
   }
 
-  getAllStudent(){
-    return this.studentService.getAll().subscribe(next=>{
-      this.listStudent = next;
-    })
-  }
 }

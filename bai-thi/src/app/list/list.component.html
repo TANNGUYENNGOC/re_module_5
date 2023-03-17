@@ -1,3 +1,18 @@
+<app-header></app-header>
+<nav class="navbar bg-light">
+  <div class="container-fluid">
+    <div class="d-flex" role="search">
+      <input  class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <select  class="form-select me-2" aria-label="Default select example">
+        <option selected value="">---Chọn lớp---</option>
+        <option ></option>
+
+      </select>
+      <button  class="btn btn-outline-success" type="submit">Search</button>
+    </div>
+  </div>
+</nav>
+<br>
 <button routerLink="/create" type="button" class="btn btn-success">Thêm mới</button>
 <table class="table">
   <thead>
@@ -11,17 +26,33 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let student of listStudent,index as i">
-    <th scope="row">{{i + 1}}</th>
-    <td>{{student.id}}</td>
-    <td>{{student.name}}</td>
-    <td *ngIf="student.gender === 1">Nam</td>
-    <td *ngIf="student.gender === 0">Nam</td>
-    <td *ngIf="student.gender === 2">Khác</td>
-    <td>{{student.clazz.name}}</td>
+  <tr >
+    <th scope="row"></th>
+    <td></td>
+
     <td>
-      <button [routerLink]="['/update',student.id]" type="button" class="btn btn-danger">Sửa</button>
+      <button  type="button" class="btn btn-danger">Sửa</button>
     </td>
+    <td><button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Xóa
+    </button></td>
   </tr>
   </tbody>
 </table>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn xóa học sinh <span style="color: red;"></span>  không ???
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+        <button  type="button" class="btn btn-primary" data-bs-dismiss="modal">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>

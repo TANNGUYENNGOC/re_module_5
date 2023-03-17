@@ -1,0 +1,62 @@
+<div class="row">
+  <h1 class="text-center">Thêm mới</h1>
+  <div class="col-3"></div>
+  <div class="col-6">
+    <form [formGroup]="formCreate" (ngSubmit)="createXe()">
+      <div class="mb-3">
+        <p>Chọn loại xe: </p>
+        <select  formControlName="loaiXe" class="form-select" aria-label="Default select example">
+          <option value="" selected>---Chọn loại xe---</option>
+          <option  *ngFor="let loaiXe of loaiXeList" [ngValue]="loaiXe">{{loaiXe.tenLoaiXe}}</option>
+        </select>
+
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Tên nhà xe</label>
+          <input formControlName="tenNhaXe" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+
+
+        <div class="mb-3">
+          <label for="exampleInputEmail3" class="form-label">Điểm đi</label>
+          <input formControlName="diemDi" type="email" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+        </div>
+
+
+        <div class="mb-3">
+          <label for="exampleInputEmail4" class="form-label">Điểm đến</label>
+          <input formControlName="diemDen" type="email" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp">
+        </div>
+
+
+        <div class="mb-3">
+          <label for="exampleInputEmail5" class="form-label">Số điện thoại</label>
+          <input formControlName="sdt" type="email" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail6" class="form-label">Email</label>
+          <input formControlName="email" type="email" class="form-control" id="exampleInputEmail6" aria-describedby="emailHelp">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail7" class="form-label">Giờ đi</label>
+          <input formControlName="gioDi" type="time" class="form-control" id="exampleInputEmail7" aria-describedby="emailHelp">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail8" class="form-label">Giờ đến</label>
+          <input formControlName="gioDen" type="time" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp">
+        </div>
+
+      </div>
+      <div>
+        <button style="margin-right: 10px"  type="submit" class="btn btn-primary">Sửa</button>
+        <button  routerLink="" type="submit" class="btn btn-primary">Quay về</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-3"></div>
+</div>
+
+

@@ -1,0 +1,41 @@
+{
+  "xe": [
+    {
+      "id": 1,
+      "loaiXe": {
+        "id": 2,
+        "tenLoaiXe": "Ghế ngồi"
+      },
+      "tenNhaXe": "Mai Linh",
+      "diemDi": "Đà Nẵng",
+      "diemDen": "Quảng Trị",
+      "sdt": "0991188221",
+      "email": "maiLinh@gmail.com",
+      "gioDi": "13:20",
+      "gioDen": "15:00"
+    },{
+      "id": 2,
+      "loaiXe": {
+        "id": 2,
+        "tenLoaiXe": "Ghế ngồi"
+      },
+      "tenNhaXe": "Mai Linh",
+      "diemDi": "Đà Nẵng",
+      "diemDen": "Quảng Trị",
+      "sdt": "0991188221",
+      "email": "maiLinh@gmail.com",
+      "gioDi": "13:20",
+      "gioDen": "15:00"
+    }
+  ],
+  "loaixe": [
+    {
+      "id": 1,
+      "tenLoaiXe": "Giường nằm"
+    },
+    {
+      "id": 2,
+      "tenLoaiXe": "Ghế ngồi"
+    }
+  ]
+}
