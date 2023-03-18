@@ -24,6 +24,11 @@ public class XeServiceImpl implements IXeService {
     }
 
     @Override
+    public Page<XeDTO> getAllPageXe(Pageable pageable) {
+        return iXeReponsitory.getAllPageXe(pageable);
+    }
+
+    @Override
     public List<ILoaiXe> getLoaiXe() {
         return iXeReponsitory.getLoaiXe();
     }

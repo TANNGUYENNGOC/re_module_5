@@ -13,8 +13,8 @@ export class ServiceService {
   URL_LOAI_XE = "http://localhost:3000/loaixe";
   constructor(private httpClient:HttpClient) { }
 
-  getAll():Observable<any>{
-    return this.httpClient.get<Xe[]>("http://localhost:8080/api-xe/listXe");
+  getAll(page:number):Observable<any>{
+    return this.httpClient.get<Xe[]>("http://localhost:8080/api-xe/listXe?page="+page);
   }
 
   getAllLoaiXe():Observable<any>{

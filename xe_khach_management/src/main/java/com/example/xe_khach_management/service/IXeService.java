@@ -4,12 +4,17 @@ import com.example.xe_khach_management.dto.ILoaiXe;
 import com.example.xe_khach_management.dto.XeDTO;
 import com.example.xe_khach_management.dto.XeUpdateDTO;
 import com.example.xe_khach_management.model.Xe;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
 public interface IXeService extends IGeneralService<Xe> {
     List<XeDTO> getListXe();
+
+    Page<XeDTO> getAllPageXe(Pageable pageable);
+
 
     List<ILoaiXe> getLoaiXe();
 

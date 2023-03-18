@@ -8,6 +8,9 @@ import com.example.xe_khach_management.model.LoaiXe;
 import com.example.xe_khach_management.model.Xe;
 import com.example.xe_khach_management.service.IXeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,12 +25,13 @@ public class XeRestController {
     private IXeService xeService;
 
     @GetMapping("/listXe")
-    public ResponseEntity<List<XeDTO>> getListXe() {
-        List<XeDTO> xeDTOList = xeService.getListXe();
-        if (xeDTOList.isEmpty()) {
+    public ResponseEntity<Page<XeDTO>> getListXe(@PageableDefault(value = 3) Pageable pageable) {
+//        List<XeDTO> xeDTOList = xeService.getListXe();
+        Page<XeDTO> xeDTOPage = xeService.getAllPageXe(pageable);
+        if (xeDTOPage.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(xeDTOList, HttpStatus.OK);
+        return new ResponseEntity<>(xeDTOPage, HttpStatus.OK);
     }
 
     @GetMapping("/listLoaiXe")
@@ -46,7 +50,7 @@ public class XeRestController {
     }
     @PatchMapping("/update/{id}")
     public ResponseEntity updateXe(@RequestBody XeDTO1 xeDTO1){
-        
+
         xeService.updateXe(xeDTO1.getLoaiXe().getId(), xeDTO1.getTenNhaXe(), xeDTO1.getDiemDi(), xeDTO1.getDiemDen(),xeDTO1.getSdt(),xeDTO1.getEmail(),xeDTO1.getGioDi(),xeDTO1.getGioDen(),xeDTO1.getId() );
         return new ResponseEntity<>(HttpStatus.OK);
     }
@@ -54,7 +58,6 @@ public class XeRestController {
     public ResponseEntity<XeDTO> getXe(@PathVariable("id") int id) {
         XeUpdateDTO xeUpdateDTO = xeService.findByIdXe(id);
         Xe xe = new Xe();
-
         xe.setId(xeUpdateDTO.getId());
         xe.setLoaiXe(new LoaiXe(Integer.parseInt(xeUpdateDTO.getIdLoaiXe()),xeUpdateDTO.getTenLoaiXe()));
         xe.setTenNhaXe(xeUpdateDTO.getTenNhaXe());
@@ -75,6 +78,4 @@ public class XeRestController {
         xeService.removeXe(id);
         return new ResponseEntity<Xe>(HttpStatus.OK);
     }
-
-
 }

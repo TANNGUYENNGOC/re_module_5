@@ -5,6 +5,8 @@ import com.example.xe_khach_management.dto.XeDTO;
 import com.example.xe_khach_management.dto.XeUpdateDTO;
 import com.example.xe_khach_management.model.Xe;
 import org.hibernate.annotations.SQLInsert;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -19,6 +21,11 @@ public interface IXeReponsitory extends JpaRepository<Xe, Integer> {
     @Query(value = "select xe.id, lx.ten_loai_xe as tenLoaiXe, xe.ten_nha_xe as tenNhaXe,xe.diem_di as diemDi,xe.diem_den as diemDen,xe.sdt,xe.email,xe.gio_di as gioDi,xe.gio_den as gioDen from xe join loai_xe lx on lx.id = xe.loai_xe_id",
             nativeQuery = true)
     List<XeDTO> getListXe();
+
+    @Query(value = "select xe.id, lx.ten_loai_xe as tenLoaiXe, xe.ten_nha_xe as tenNhaXe,xe.diem_di as diemDi,xe.diem_den as diemDen,xe.sdt,xe.email,xe.gio_di as gioDi,xe.gio_den as gioDen from xe join loai_xe lx on lx.id = xe.loai_xe_id",
+            countQuery = "select xe.id, lx.ten_loai_xe as tenLoaiXe, xe.ten_nha_xe as tenNhaXe,xe.diem_di as diemDi,xe.diem_den as diemDen,xe.sdt,xe.email,xe.gio_di as gioDi,xe.gio_den as gioDen from xe join loai_xe lx on lx.id = xe.loai_xe_id",
+            nativeQuery = true)
+    Page<XeDTO> getAllPageXe(Pageable pageable);
 
     @Query(value = "select loai_xe.id, loai_xe.ten_loai_xe as tenLoaiXe  from loai_xe",
             nativeQuery = true)
@@ -41,8 +48,7 @@ public interface IXeReponsitory extends JpaRepository<Xe, Integer> {
     @Query(value = "update xe SET loai_xe_id = :idLoaiXe, ten_nha_xe = :tenNhaXe, diem_di = :diemDi, diem_den = :diemDen, sdt = :sdt, email = :email, gio_di = :gioDi, gio_den = :gioDen WHERE id = :id",
     nativeQuery = true)
     void updateXe(@Param("idLoaiXe") int idLoaiXe, @Param("tenNhaXe")String tenNhaXe, @Param("diemDi") String diemDi, @Param("diemDen") String diemDen, @Param("sdt") String sdt, @Param("email") String email, @Param("gioDi") String gioDi,@Param("gioDen") String gioDen, @Param("id") int id);
-
-
+    
     @Transactional
     @Modifying
     @Query(value = "delete from `xe` where id = :id",
